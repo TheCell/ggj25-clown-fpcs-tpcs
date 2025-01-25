@@ -6,9 +6,19 @@ public class Combat : MonoBehaviour
 {
     [SerializeField] private InputActionReference attackTop;
     [SerializeField] private InputActionReference attackBottom;
+    [SerializeField] Animator billboardAnimator;
 
     private float notifyAdultsRadius = 10f;
     private bool drawDebug = false;
+    
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+
+    }
 
     private void OnDrawGizmos()
     {
@@ -38,20 +48,11 @@ public class Combat : MonoBehaviour
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
         NotifyAdults();
+        billboardAnimator.Play(nameof(Interactions.EyePoke));
     }
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
     {
-    }
-
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void NotifyAdults()
