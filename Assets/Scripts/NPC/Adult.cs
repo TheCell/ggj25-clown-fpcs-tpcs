@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,12 +7,17 @@ using UnityEngine.AI;
 public class Adult : MonoBehaviour
 {
     [SerializeField] private Transform[] points;
+    private AudioSource audioSource;
+
     private int destPoint = 0;
     private NavMeshAgent agent;
 
     public void InterruptHappened()
     {
         agent.isStopped = true;
+
+        StartCoroutine(PlayAudioRandomDelayed());
+
         Invoke(nameof(InterruptEnded), 2f);
     }
 
@@ -23,6 +29,8 @@ public class Adult : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
+
         FixPointsInWorld();
 
         // Disabling auto-braking allows for continuous movement
@@ -32,7 +40,6 @@ public class Adult : MonoBehaviour
 
         GotoNextPoint();
     }
-
 
     private void GotoNextPoint()
     {
@@ -50,7 +57,6 @@ public class Adult : MonoBehaviour
         destPoint = (destPoint + 1) % points.Length;
     }
 
-
     private void Update()
     {
         // Choose the next destination point when the agent gets
@@ -67,5 +73,11 @@ public class Adult : MonoBehaviour
         {
             points[i].SetParent(null, true);
         }
+    }
+
+    private IEnumerator PlayAudioRandomDelayed()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 0.3f));
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }
