@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using NPC;
+using Unity.VisualScripting;
 
 namespace Player
 {
@@ -16,6 +17,11 @@ namespace Player
         private ScoreManager scoreManager;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Awake()
+        {
+            
+        }
+
+        private void OnEnable()
         {
             scoreManager = ScoreManager.instance;
         }
@@ -40,6 +46,13 @@ namespace Player
         private void OnCollisionEnter(Collision other)
         {
             if (!isThrown) return;
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("Player hit ja lol ey");
+                Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>());
+                return;
+            }
+            
             Debug.Log("Collision ja lol ey" + other.gameObject.name);
             isThrown = false;
             gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;

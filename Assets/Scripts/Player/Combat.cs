@@ -40,6 +40,7 @@ public class Combat : InteractionHistory
 
     private void OnEnable()
     {
+        scoreManager = ScoreManager.instance;
         attackTop.action.Enable();
         attackBottom.action.Enable();
         attackTop.action.performed += OnAttackTopPerformed;
