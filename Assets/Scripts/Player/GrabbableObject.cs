@@ -16,14 +16,13 @@ namespace Player
 
         private ScoreManager scoreManager;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Awake()
-        {
-            
-        }
-
-        private void OnEnable()
+        void Start()
         {
             scoreManager = ScoreManager.instance;
+        }
+        private void OnEnable()
+        {
+            //scoreManager = ScoreManager.instance;
         }
 
         // Update is called once per frame
