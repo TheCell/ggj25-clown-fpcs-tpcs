@@ -37,11 +37,6 @@ namespace NPC
 
         public void KickHappened()
         {
-            if (HasInteractedWith(Interaction.Kick))
-            {
-                return;
-            }
-
             AddHasBeenInteractedWith(Interaction.Kick);
         }
 

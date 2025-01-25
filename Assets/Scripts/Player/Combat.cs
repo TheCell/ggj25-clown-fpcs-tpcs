@@ -104,26 +104,26 @@ public class Combat : InteractionHistory
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
             var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
-            if (!adult.HasInteractedWith(Interaction.Kick))
-            {
-                audioSource.PlayOneShot(audioSource.clip);
-                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
-                billboardAnimator.Play(nameof(Interaction.Kick));
-                adult.KickHappened();
-                NotifyAdults(Interaction.Kick, hit.collider.gameObject);
-            }
+            audioSource.PlayOneShot(audioSource.clip);
+            billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
+            billboardAnimator.Play(nameof(Interaction.Kick));
+            adult.KickHappened();
+            NotifyAdults(Interaction.Kick, hit.collider.gameObject);
+            //if (!adult.HasInteractedWith(Interaction.Kick))
+            //{
+            //}
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
             var child = hit.collider.gameObject.GetComponent<Child>();
-            if (!child.HasInteractedWith(Interaction.Kick))
-            {
-                audioSource.PlayOneShot(audioSource.clip);
-                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
-                billboardAnimator.Play(nameof(Interaction.Kick));
-                child.KickHappened();
-                NotifyAdults(Interaction.Kick, null);
-            }
+            audioSource.PlayOneShot(audioSource.clip);
+            billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
+            billboardAnimator.Play(nameof(Interaction.Kick));
+            child.KickHappened();
+            NotifyAdults(Interaction.Kick, null);
+            //if (!child.HasInteractedWith(Interaction.Kick))
+            //{
+            //}
         }
     }
 
