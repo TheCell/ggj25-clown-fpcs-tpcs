@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     [SerializeField] private float timeUntilCopsArrive = 60f;
+    private AudioSource audioSource;
+    private AudioMixer audioMixer;
+
     private float timeUntilCopsArriveCounter = 0f;
     public bool isGamePaused = false;
     public bool isTrueEnding = false;
@@ -20,6 +27,26 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.activeSceneChanged += OnSceneChange;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.activeSceneChanged -= OnSceneChange;
+    }
+
+    private void OnSceneChange(Scene oldScene, Scene newScene)
+    {
+        //audioMixer.
     }
 
     private void Update()
