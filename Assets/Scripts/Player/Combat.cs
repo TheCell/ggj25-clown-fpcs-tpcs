@@ -20,7 +20,7 @@ public class Combat : InteractionHistory
     
     private void Start()
     {
-        scoreManager = Object.FindObjectsByType<ScoreManager>(FindObjectsSortMode.InstanceID)[0];
+        scoreManager = ScoreManager.instance;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -40,7 +40,6 @@ public class Combat : InteractionHistory
 
     private void OnEnable()
     {
-        scoreManager = ScoreManager.instance;
         attackTop.action.Enable();
         attackBottom.action.Enable();
         attackTop.action.performed += OnAttackTopPerformed;
