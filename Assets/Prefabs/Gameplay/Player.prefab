@@ -497,6 +497,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputActionReferenceInteract: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   playerCapsuleTransform: {fileID: 4929113400938513868}
+  forwardDirectionRayLength: 2
+  upDirectionRayLength: -0.25
 --- !u!114 &8230806173718451538
 MonoBehaviour:
   m_ObjectHideFlags: 0

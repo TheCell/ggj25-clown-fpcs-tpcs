@@ -12,6 +12,8 @@ namespace GamePlay
     {
         [SerializeField] private InputActionReference inputActionReferenceInteract;
         [SerializeField] private Transform playerCapsuleTransform;
+        [SerializeField] private float forwardDirectionRayLength;
+        [SerializeField] private float upDirectionRayLength;
         private bool hasObjectGrabbed;
         private GameObject grabbedObject;
         private GrabbableObject currentgrabbable;
@@ -33,7 +35,7 @@ namespace GamePlay
         }
         void Update()
         {
-            Debug.DrawRay(playerCapsuleTransform.position, playerCapsuleTransform.forward * 2, Color.red);
+            Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward + playerCapsuleTransform.up * upDirectionRayLength, Color.red);
             if (hasObjectGrabbed)
             {
                 grabbedObject.transform.position = playerCapsuleTransform.position + playerCapsuleTransform.forward;
@@ -58,7 +60,7 @@ namespace GamePlay
         private void Grab()
         {
             // Call the grabbed object and set it to the player
-            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward);
+            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward * forwardDirectionRayLength + playerCapsuleTransform.up * upDirectionRayLength);
             int layerMask = ~LayerMask.GetMask("Ignore Raycast");
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2, layerMask))
