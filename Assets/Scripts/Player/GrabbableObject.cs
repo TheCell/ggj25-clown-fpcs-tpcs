@@ -1,8 +1,6 @@
-using System.Collections;
-using GamePlay;
 using UnityEngine;
 
-namespace Data
+namespace Player
 {
     public class GrabbableObject : MonoBehaviour
     {

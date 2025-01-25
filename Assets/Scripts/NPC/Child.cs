@@ -1,5 +1,4 @@
 using System.Collections;
-using GamePlay;
 using UnityEngine;
 
 namespace NPC
