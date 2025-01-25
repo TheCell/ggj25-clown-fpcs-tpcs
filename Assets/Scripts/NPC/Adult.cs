@@ -52,6 +52,21 @@ public class Adult : InteractionHistory, IShovable
         AddHasBeenInteractedWith(Interaction.EyePoke);
     }
 
+    public void KickHappened()
+    {
+        if (HasInteractedWith(Interaction.Kick))
+        {
+            return;
+        }
+
+        agent.isStopped = true;
+        //billboard.transform.position = agent.transform.position + billboardRelatieOffset;
+        //billboardAnimator.Play(nameof(Interaction.Kick));
+        //StartCoroutine(PlayAudioRandomDelayed());
+        //Invoke(nameof(KickEnded), 2f);
+        AddHasBeenInteractedWith(Interaction.Kick);
+    }
+
     private void EyePokeEnded()
     {
         agent.isStopped = false;
