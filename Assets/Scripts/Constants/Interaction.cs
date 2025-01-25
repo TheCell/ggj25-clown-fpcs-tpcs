@@ -1,8 +1,8 @@
 public enum Interaction
 {
-    EyePoke,
-    Kick,
-    BubbleBurst,
-    Shove,
-    Witness
+    EyePoke = 20,
+    Kick = 10,
+    BubbleBurst = 30,
+    Shove = 5,
+    Witness = 5
 }
