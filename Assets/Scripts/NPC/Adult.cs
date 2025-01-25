@@ -1,4 +1,5 @@
-using System.Collections;
+﻿using System.Collections;
+using System.Threading;
 using NPC;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,9 @@ public class Adult : InteractionHistory, IShovable
     private bool isBeingShoved;
     private AudioSource audioSource;
     private Vector3 billboardRelatieOffset;
+    private float checkForPlayerRadius = 2f;
+    private float playerLastSeenTimeStamp = 0f;
+    private float continueWalkAfterSeconds = 2f;
 
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -93,6 +97,36 @@ public class Adult : InteractionHistory, IShovable
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             GotoNextPoint();
+        }
+    }
+
+    bool playerHasBeenSeenInFixedUpdate = false;
+    private void FixedUpdate()
+    {
+        playerHasBeenSeenInFixedUpdate = false;
+
+        // this is in no way performant, but it's a game jam so ¯\_(ツ)_/¯
+        var colliders = Physics.OverlapSphere(agent.transform.position, checkForPlayerRadius);
+        foreach (var collider in colliders)
+        {
+            if (collider.CompareTag(nameof(Tag.Player)))
+            {
+                playerHasBeenSeenInFixedUpdate = true;
+                playerLastSeenTimeStamp = Time.time;
+
+                if (!agent.isStopped)
+                {
+                    agent.isStopped = true;
+                }
+            }
+        }
+
+        if (!playerHasBeenSeenInFixedUpdate && agent.isStopped)
+        {
+            if ((Time.time - playerLastSeenTimeStamp) > continueWalkAfterSeconds)
+            {
+                agent.isStopped = false;
+            }
         }
     }
 
