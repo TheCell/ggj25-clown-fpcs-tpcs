@@ -412,6 +412,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6fd1a0ccc34869c43b7f6665108b1aff, type: 2}
   - {fileID: 2100000, guid: 47c2ad9e1e1660d46875a0e8cedecd67, type: 2}
   - {fileID: 2100000, guid: afb48873ba12ecd47983d196e6176f11, type: 2}
+  - {fileID: 2100000, guid: 6e6a972a2340b4047b46ef3ad56d4ea2, type: 2}
   billboard: {fileID: 2592167519276825268}
 --- !u!136 &3488896431856158960
 CapsuleCollider:

@@ -69,6 +69,10 @@ public class Combat : InteractionHistory
             var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
             if (adult.HasInteractedWith(Interaction.EyePoke))
             {
+                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
+                billboardAnimator.Play(nameof(Interaction.Strike));
+                scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
+
                 return;
             }
 
@@ -81,6 +85,10 @@ public class Combat : InteractionHistory
         {
             if (hit.collider.gameObject.GetComponent<InteractionHistory>().HasInteractedWith(Interaction.BubbleBurst))
             {
+                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
+                billboardAnimator.Play(nameof(Interaction.Strike));
+                scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
+
                 return;
             }
 
@@ -159,6 +167,8 @@ public class Combat : InteractionHistory
                 return billboardMaterials[1];
             case Interaction.Kick:
                 return billboardMaterials[2];
+            case Interaction.Strike:
+                return billboardMaterials[3];
             default:
                 Debug.LogError("No material found for interaction: " + interaction);
                 throw new System.ArgumentException();
