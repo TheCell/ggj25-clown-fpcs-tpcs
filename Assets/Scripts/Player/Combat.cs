@@ -115,7 +115,6 @@ public class Combat : InteractionHistory
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
             var child = hit.collider.gameObject.GetComponent<Child>();
             if (!child.HasInteractedWith(Interaction.Kick))
             {
