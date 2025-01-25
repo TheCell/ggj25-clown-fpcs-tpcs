@@ -3,12 +3,14 @@ using GamePlay;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AudioSource))]
 public class Adult : MonoBehaviour, IShovable
 {
     [SerializeField] private Transform[] points;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject billboard;
     private AudioSource audioSource;
+    private Vector3 billboardRelatieOffset;
 
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -17,6 +19,8 @@ public class Adult : MonoBehaviour, IShovable
     {
         agent.isStopped = true;
 
+        billboard.transform.position = agent.transform.position + billboardRelatieOffset;
+        animator.Play(nameof(Interaction.Witness));
         StartCoroutine(PlayAudioRandomDelayed());
 
         Invoke(nameof(InterruptEnded), 2f);
@@ -29,8 +33,9 @@ public class Adult : MonoBehaviour, IShovable
 
     private void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponentInChildren<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+        billboardRelatieOffset = billboard.transform.position - transform.position;
 
         FixPointsInWorld();
 
