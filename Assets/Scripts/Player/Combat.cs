@@ -58,10 +58,15 @@ public class Combat : MonoBehaviour
             return;
         }
 
-        if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
-            NotifyAdults();
+            NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
+        }
+        else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        {
+            NotifyAdults(Interaction.BubbleBurst, null);
+            billboardAnimator.Play(nameof(Interaction.BubbleBurst));
         }
     }
 
@@ -69,13 +74,18 @@ public class Combat : MonoBehaviour
     {
     }
 
-    private void NotifyAdults()
+    private void NotifyAdults(Interaction interaction, GameObject objectToIgnore)
     {
         var adultsInRange = Physics.OverlapSphere(transform.position, notifyAdultsRadius);
         var witnessCount = 0;
 
         foreach (var adult in adultsInRange)
         {
+            if (objectToIgnore != null && adult.gameObject == objectToIgnore)
+            {
+                continue;
+            }
+
             if (adult.CompareTag(nameof(Tag.Adult)))
             {
                 adult.GetComponentInParent<Adult>().InterruptHappened();
@@ -83,6 +93,6 @@ public class Combat : MonoBehaviour
             }
         }
 
-        scoreManager.scoreEvent.Invoke(Interaction.EyePoke, witnessCount);
+        scoreManager.scoreEvent.Invoke(interaction, witnessCount);
     }
 }
