@@ -29,27 +29,6 @@ public class SceneHandler : MonoBehaviour
     private bool leavingSceneLeft = false;
     [SerializeField] private float transitionMoveDistance = 9f;
 
-    //BEISPIEL FÜR INPUT SYSTEM
-    public InputActionReference inputActionReferenceSOMETHING;
-
-    private void OnDisable()
-    {
-        inputActionReferenceSOMETHING.action.performed -= OnSomething;
-    }
-    private void OnEnable()
-    {
-        inputActionReferenceSOMETHING.action.performed += OnSomething;
-    }
-
-    private void OnSomething(InputAction.CallbackContext context)
-    {
-        Debug.Log(context.action);
-        if (context.action == inputActionReferenceSOMETHING.action)
-        {
-            Debug.Log("Something happened");
-        }
-    }
-
     private void Awake()
     {
         if (Instance == null)
@@ -61,6 +40,11 @@ public class SceneHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        currentScene = (SceneType)SceneManager.GetActiveScene().buildIndex;
     }
 
     public static void GoToNextScene(int sceneIndexIncrement = 1)

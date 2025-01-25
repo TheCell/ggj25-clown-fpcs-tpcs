@@ -34,21 +34,6 @@ public class GameManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnEnable()
-    {
-        SceneManager.activeSceneChanged += OnSceneChange;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.activeSceneChanged -= OnSceneChange;
-    }
-
-    private void OnSceneChange(Scene oldScene, Scene newScene)
-    {
-        //audioMixer.
-    }
-
     private void Update()
     {
         if (SceneHandler.Instance.currentScene == SceneType.GAMESCENE && !isGamePaused)
