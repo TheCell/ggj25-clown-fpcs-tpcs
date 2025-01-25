@@ -6,10 +6,12 @@ public class Combat : MonoBehaviour
     [SerializeField] private InputActionReference attackTop;
     [SerializeField] private InputActionReference attackBottom;
     [SerializeField] Animator billboardAnimator;
+    [SerializeField] GameObject interactionPosition;
     private ScoreManager scoreManager;
 
     private float notifyAdultsRadius = 10f;
-    private bool drawDebug = false;
+    private float closeRangeCheck = 1f;
+    private bool drawDebug = true;
     
     private void Start()
     {
@@ -27,6 +29,9 @@ public class Combat : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, notifyAdultsRadius);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(interactionPosition.transform.position, closeRangeCheck);
         }
     }
 
@@ -48,8 +53,19 @@ public class Combat : MonoBehaviour
 
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
-        NotifyAdults();
-        billboardAnimator.Play(nameof(Interaction.EyePoke));
+        Physics.SphereCast(interactionPosition.transform.position, closeRangeCheck, transform.forward, out RaycastHit hit, closeRangeCheck);
+        Debug.DrawRay(interactionPosition.transform.position, transform.forward, Color.red, 1f);
+        Debug.Log(hit.collider);
+        if (hit.collider == null)
+        {
+            return;
+        }
+
+        if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        {
+            NotifyAdults();
+            billboardAnimator.Play(nameof(Interaction.EyePoke));
+        }
     }
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
