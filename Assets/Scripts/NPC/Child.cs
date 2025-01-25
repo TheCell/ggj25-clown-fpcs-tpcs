@@ -6,6 +6,8 @@ namespace NPC
     [RequireComponent(typeof(AudioSource))]
     public class Child : InteractionHistory, IShovable
     {
+        [SerializeField] private GameObject balloon;
+
         private bool isBeingShoved;
         private Rigidbody rb;
         private AudioSource audioSource;
@@ -29,6 +31,7 @@ namespace NPC
             }
 
             audioSource.PlayOneShot(audioSource.clip);
+            Destroy(balloon);
             AddHasBeenInteractedWith(Interaction.BubbleBurst);
         }
 
