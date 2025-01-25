@@ -60,10 +60,8 @@ public class Combat : MonoBehaviour
 
         foreach (var adult in adultsInRange)
         {
-            Debug.Log("adult: " + adult.tag);
-            if (adult != null && adult.CompareTag(nameof(Tags.Adult)))
+            if (adult.CompareTag(nameof(Tags.Adult)))
             {
-                Debug.Log("adult: " + adult.name);
                 adult.GetComponent<Adult>().InterruptHappened();
             }
         }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,8 +15,8 @@ public class Adult : MonoBehaviour
     public void InterruptHappened()
     {
         agent.isStopped = true;
-        Debug.Log("audioSource.clip: " + audioSource.clip);
-        audioSource.PlayOneShot(audioSource.clip);
+
+        StartCoroutine(PlayAudioRandomDelayed());
 
         Invoke(nameof(InterruptEnded), 2f);
     }
@@ -40,7 +41,6 @@ public class Adult : MonoBehaviour
         GotoNextPoint();
     }
 
-
     private void GotoNextPoint()
     {
         // Returns if no points have been set up
@@ -56,7 +56,6 @@ public class Adult : MonoBehaviour
         // cycling to the start if necessary.
         destPoint = (destPoint + 1) % points.Length;
     }
-
 
     private void Update()
     {
@@ -74,5 +73,11 @@ public class Adult : MonoBehaviour
         {
             points[i].SetParent(null, true);
         }
+    }
+
+    private IEnumerator PlayAudioRandomDelayed()
+    {
+        yield return new WaitForSeconds(Random.Range(0f, 0.3f));
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }
