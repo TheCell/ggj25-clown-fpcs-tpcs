@@ -1,4 +1,4 @@
-public enum Interactions
+public enum Interaction
 {
     EyePoke,
     Kick,

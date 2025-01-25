@@ -357,8 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActionReferenceInteract: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  hasObjectGrabbed: 1
-  grabbedObject: {fileID: 1531072169}
+  playerCapsuleTransform: {fileID: 1595675368}
 --- !u!114 &971233458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,6 +520,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!4 &1595675368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4929113400938513868, guid: beb1a3c548b623b4ea98c5e5838f2c59, type: 3}
+  m_PrefabInstance: {fileID: 320082893}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1656639552
 GameObject:
   m_ObjectHideFlags: 0
