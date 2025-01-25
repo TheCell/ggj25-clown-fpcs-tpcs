@@ -16,7 +16,8 @@ public class Adult : InteractionHistory, IShovable
 
     private bool isBeingShoved;
     private AudioSource audioSource;
-    private Vector3 billboardRelatieOffset;
+    private Vector3 billboardRelativeOffset;
+    private Vector3 emotionBillboardRelatieveOffset;
     private float checkForPlayerRadius = 2f;
     private float playerLastSeenTimeStamp = 0f;
     private float continueWalkAfterSeconds = 2f;
@@ -29,7 +30,7 @@ public class Adult : InteractionHistory, IShovable
     {
         agent.isStopped = true;
 
-        billboard.transform.position = agent.transform.position + billboardRelatieOffset;
+        billboard.transform.position = agent.transform.position + billboardRelativeOffset;
         billboardAnimator.Play(nameof(Interaction.Witness));
         StartCoroutine(PlayAudioRandomDelayed());
 
@@ -88,7 +89,8 @@ public class Adult : InteractionHistory, IShovable
     {
         agent = GetComponentInChildren<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
-        billboardRelatieOffset = billboard.transform.position - transform.position;
+        billboardRelativeOffset = billboard.transform.position - transform.position;
+        emotionBillboardRelatieveOffset = emotionBillboard.transform.position - transform.position;
 
         FixPointsInWorld();
 
@@ -120,6 +122,8 @@ public class Adult : InteractionHistory, IShovable
     {
         // Choose the next destination point when the agent gets
         // close to the current one.
+        emotionBillboard.transform.position = agent.transform.position + emotionBillboardRelatieveOffset;
+
         if (isBeingShoved) return;
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {

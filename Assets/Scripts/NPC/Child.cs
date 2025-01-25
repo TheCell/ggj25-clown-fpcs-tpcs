@@ -11,6 +11,7 @@ namespace NPC
         [SerializeField] private Material[] emotionBillboardMaterials;
         [SerializeField] private GameObject emotionBillboard;
 
+        private Vector3 emotionBillboardRelatieveOffset;
         private bool isBeingShoved;
         private Rigidbody rb;
         private AudioSource audioSource;
@@ -18,12 +19,16 @@ namespace NPC
 
         private void Start()
         {
+            emotionBillboardRelatieveOffset = emotionBillboard.transform.position - transform.position;
+
             rb = GetComponent<Rigidbody>();
             audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
         {
+            //emotionBillboard.transform.position = agent.transform.position + emotionBillboardRelatieveOffset;
+
             if (isBeingShoved) return;
         }
 
