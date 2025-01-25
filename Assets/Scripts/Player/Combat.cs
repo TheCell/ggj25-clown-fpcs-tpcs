@@ -72,6 +72,7 @@ public class Combat : InteractionHistory
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
                 billboardAnimator.Play(nameof(Interaction.Strike));
                 scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
+                adult.SetEmotion(Emotion.Depressed);
 
                 return;
             }
@@ -79,6 +80,7 @@ public class Combat : InteractionHistory
             NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.EyePoke);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
+            adult.SetEmotion(Emotion.Sad);
             adult.EyePokeHappened();
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
@@ -119,10 +121,8 @@ public class Combat : InteractionHistory
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
             adult.KickHappened();
+            adult.PlaySameEmotion();
             NotifyAdults(Interaction.Kick, hit.collider.gameObject);
-            //if (!adult.HasInteractedWith(Interaction.Kick))
-            //{
-            //}
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
@@ -131,10 +131,8 @@ public class Combat : InteractionHistory
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
             child.KickHappened();
+            child.PlaySameEmotion();
             NotifyAdults(Interaction.Kick, null);
-            //if (!child.HasInteractedWith(Interaction.Kick))
-            //{
-            //}
         }
     }
 

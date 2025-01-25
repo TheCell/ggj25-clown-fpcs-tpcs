@@ -10,6 +10,9 @@ public class Adult : InteractionHistory, IShovable
     [SerializeField] private Transform[] points;
     [SerializeField] private Animator billboardAnimator;
     [SerializeField] private GameObject billboard;
+    [SerializeField] Animator emotionBillboardAnimator;
+    [SerializeField] private Material[] emotionBillboardMaterials;
+    [SerializeField] private GameObject emotionBillboard;
 
     private bool isBeingShoved;
     private AudioSource audioSource;
@@ -17,6 +20,7 @@ public class Adult : InteractionHistory, IShovable
     private float checkForPlayerRadius = 2f;
     private float playerLastSeenTimeStamp = 0f;
     private float continueWalkAfterSeconds = 2f;
+    private Emotion currentEmotion = Emotion.Happy;
 
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -65,6 +69,19 @@ public class Adult : InteractionHistory, IShovable
     private void EyePokeEnded()
     {
         agent.isStopped = false;
+    }
+
+    public void PlaySameEmotion()
+    {
+        emotionBillboardAnimator.Play(currentEmotion.ToString());
+    }
+
+    public void SetEmotion(Emotion emotion)
+    {
+        currentEmotion = emotion;
+        Material material = GetBillboardMaterial(emotion);
+        emotionBillboard.GetComponent<MeshRenderer>().material = material;
+        emotionBillboardAnimator.Play(emotion.ToString());
     }
 
     private void Start()
@@ -169,5 +186,21 @@ public class Adult : InteractionHistory, IShovable
     {
         yield return new WaitForSeconds(Random.Range(0f, 0.3f));
         audioSource.PlayOneShot(audioSource.clip);
+    }
+
+    private Material GetBillboardMaterial(Emotion emotion)
+    {
+        switch (emotion)
+        {
+            case Emotion.Happy:
+                return emotionBillboardMaterials[0];
+            case Emotion.Sad:
+                return emotionBillboardMaterials[1];
+            case Emotion.Depressed:
+                return emotionBillboardMaterials[2];
+            default:
+                Debug.LogError("No emotion found for interaction: " + emotion);
+                throw new System.ArgumentException();
+        }
     }
 }

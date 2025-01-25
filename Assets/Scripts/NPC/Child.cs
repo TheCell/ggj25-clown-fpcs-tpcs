@@ -14,6 +14,7 @@ namespace NPC
         private bool isBeingShoved;
         private Rigidbody rb;
         private AudioSource audioSource;
+        private Emotion currentEmotion = Emotion.Happy;
 
         private void Start()
         {
@@ -43,8 +44,14 @@ namespace NPC
             AddHasBeenInteractedWith(Interaction.Kick);
         }
 
+        public void PlaySameEmotion()
+        {
+            emotionBillboardAnimator.Play(currentEmotion.ToString());
+        }
+
         public void SetEmotion(Emotion emotion)
         {
+            currentEmotion = emotion;
             Material material = GetBillboardMaterial(emotion);
             emotionBillboard.GetComponent<MeshRenderer>().material = material;
             emotionBillboardAnimator.Play(emotion.ToString());
