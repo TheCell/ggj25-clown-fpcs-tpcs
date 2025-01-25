@@ -8,7 +8,7 @@ public class Combat : MonoBehaviour
     [SerializeField] private InputActionReference attackBottom;
 
     private float notifyAdultsRadius = 10f;
-    private bool drawDebug = true;
+    private bool drawDebug = false;
 
     private void OnDrawGizmos()
     {
@@ -37,13 +37,11 @@ public class Combat : MonoBehaviour
 
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Attack Top");
-        //NotifyAdults();
+        NotifyAdults();
     }
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
     {
-        Debug.Log("Attack Bottom");
     }
 
     private void Start()
@@ -59,26 +57,15 @@ public class Combat : MonoBehaviour
     private void NotifyAdults()
     {
         var adultsInRange = Physics.OverlapSphere(transform.position, notifyAdultsRadius);
-        StartDebugDraw();
-        Invoke(nameof(StopDebugDraw), 1f);
 
-        Debug.Log($"Adults in range: {adultsInRange.Length}");
         foreach (var adult in adultsInRange)
         {
-            if (adult.CompareTag(nameof(Tags.Adult)))
+            Debug.Log("adult: " + adult.tag);
+            if (adult != null && adult.CompareTag(nameof(Tags.Adult)))
             {
+                Debug.Log("adult: " + adult.name);
                 adult.GetComponent<Adult>().InterruptHappened();
             }
         }
-    }
-
-    private void StartDebugDraw()
-    {
-        drawDebug = true;
-    }
-
-    private void StopDebugDraw()
-    {
-        drawDebug = false;
     }
 }

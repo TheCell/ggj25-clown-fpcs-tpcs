@@ -6,12 +6,17 @@ using UnityEngine.AI;
 public class Adult : MonoBehaviour
 {
     [SerializeField] private Transform[] points;
+    private AudioSource audioSource;
+
     private int destPoint = 0;
     private NavMeshAgent agent;
 
     public void InterruptHappened()
     {
         agent.isStopped = true;
+        Debug.Log("audioSource.clip: " + audioSource.clip);
+        audioSource.PlayOneShot(audioSource.clip);
+
         Invoke(nameof(InterruptEnded), 2f);
     }
 
@@ -23,6 +28,8 @@ public class Adult : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
+
         FixPointsInWorld();
 
         // Disabling auto-braking allows for continuous movement
