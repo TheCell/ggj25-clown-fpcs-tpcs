@@ -5,6 +5,8 @@ using NPC;
 
 namespace Player
 {
+    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(BoxCollider))]
     public class GrabbableObject : MonoBehaviour
     {
         private bool isThrown;
@@ -26,7 +28,7 @@ namespace Player
                 transform.Rotate(Vector3.right, UnityEngine.Random.Range(37, 124));
                 transform.Rotate(Vector3.up, UnityEngine.Random.Range(37, 124));
                 transform.Rotate(Vector3.forward, UnityEngine.Random.Range(37, 124));
-                
+
                 // If hits child then invoke scoreManager
             }
         }
@@ -60,7 +62,7 @@ namespace Player
                 Debug.Log(adultAmount);
                 scoreManager.scoreEvent.Invoke(Interaction.Throw, adultAmount);
             }
-            
+
         }
     }
 }
