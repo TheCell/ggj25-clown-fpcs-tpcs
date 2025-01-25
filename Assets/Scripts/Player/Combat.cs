@@ -2,7 +2,7 @@ using NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Combat : MonoBehaviour
+public class Combat : InteractionHistory
 {
     [SerializeField] private InputActionReference attackTop;
     [SerializeField] private InputActionReference attackBottom;

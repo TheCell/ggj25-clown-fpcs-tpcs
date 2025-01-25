@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(AudioSource))]
-public class Adult : MonoBehaviour, IShovable
+public class Adult : InteractionHistory, IShovable
 {
     [SerializeField] private Transform[] points;
     [SerializeField] private Animator billboardAnimator;

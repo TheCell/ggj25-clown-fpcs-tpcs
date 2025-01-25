@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace NPC
 {
-    public class Child : MonoBehaviour, IShovable
+    public class Child : InteractionHistory, IShovable
     {
         private bool isBeingShoved;
         private Rigidbody rb;
