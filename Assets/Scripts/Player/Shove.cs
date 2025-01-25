@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,11 +14,11 @@ namespace Player
         [SerializeField] private float shoveDuration;
         [SerializeField] private float distanceBetweenPlayerAndShoveable;
         [SerializeField] private float shovePower;
-        
+
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-        
+
         }
 
         // Update is called once per frame
@@ -38,7 +39,14 @@ namespace Player
         private void OnShove(InputAction.CallbackContext context)
         {
             Debug.Log("Shove");
-            
+
+            GetComponent<Move>().FreezePlayer(shoveDuration);
+            StartCoroutine(ShoveDelayCoroutine(shoveDuration));
+        }
+        private IEnumerator ShoveDelayCoroutine(float duration)
+        {
+            yield return new WaitForSeconds(duration);
+
             Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward);
             int layerMask = ~LayerMask.GetMask("Ignore Raycast");
 

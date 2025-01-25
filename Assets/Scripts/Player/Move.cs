@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ public class Move : MonoBehaviour
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference sprint;
     private bool isRunning = false;
+    public bool canMove = true;
     private float speed;
 
 
@@ -50,6 +52,9 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove)
+            return;
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
 
@@ -87,5 +92,18 @@ public class Move : MonoBehaviour
         {
             playerModel.rotation = Quaternion.LookRotation(moveDirection);
         }
+    }
+
+    public void FreezePlayer(float duration)
+    {
+        StartCoroutine(FreezePlayerMovement(duration));
+    }
+
+
+    private IEnumerator FreezePlayerMovement(float duration)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(duration);
+        canMove = true;
     }
 }
