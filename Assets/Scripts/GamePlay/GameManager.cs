@@ -41,11 +41,16 @@ public class GameManager : MonoBehaviour
             timeUntilCopsArriveCounter += Time.deltaTime;
             if (timeUntilCopsArriveCounter >= timeUntilCopsArrive)
             {
-                isGamePaused = true;
-                timeUntilCopsArriveCounter = 0f;
-                SceneHandler.GoToNextScene();
+                EndGame();
             }
         }
+    }
+
+    public void EndGame()
+    {
+        isGamePaused = true;
+        timeUntilCopsArriveCounter = 0f;
+        SceneHandler.GoToNextScene();
     }
 
 }

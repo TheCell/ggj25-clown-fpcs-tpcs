@@ -15,11 +15,13 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image scoreBackground;
     [SerializeField] private Slider comboCountdownSlider;
+    [SerializeField] private Image[] strikeImages = new Image[3];
     public ScoreEvent scoreEvent;
 
     //Anti-Cheat score variables
     private int antiCheatFloatMultiplier;
     private int antiCheatScore = 0;
+    private int strikes = 0;
 
     private void Awake()
     {
@@ -72,12 +74,22 @@ public class ScoreManager : MonoBehaviour
 
         Debug.Log($"Score received for {interaction} with {witnesscount} witnesses and calculated score: {calculatedScore}");
 
+        if (interaction == Interaction.Strike)
+        {
+            strikeImages[strikes].color = Color.white;
+            ScaleUpDownAnimation(strikeImages[strikes].rectTransform, 2f);
+            ResetCombo();
+            strikes++;
+            if (strikes >= 3)
+            {
+                strikes = 0;
+                GameManager.Instance.EndGame();
+            }
+        }
+
         if (interaction == lastInteraction)
         {
-            combo = 1;
-            StartCoroutine(FlashTextRed(comboText));
-            StartCoroutine(ScaleUpDownAnimation(comboText.rectTransform, 0.5f));
-            StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 0.75f));
+            ResetCombo();
         }
         else
         {
@@ -86,9 +98,9 @@ public class ScoreManager : MonoBehaviour
             StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 1.5f));
         }
 
-        UpdateComboUI();
         lastInteraction = interaction;
 
+        UpdateComboUI();
         AntiCheatDetection();
     }
 
@@ -98,6 +110,14 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString();
         Debug.Log($"Score: {score}");
         comboCountdownSlider.value = comboCountdownSlider.maxValue;
+    }
+
+    private void ResetCombo()
+    {
+        combo = 1;
+        StartCoroutine(FlashTextRed(comboText));
+        StartCoroutine(ScaleUpDownAnimation(comboText.rectTransform, 0.5f));
+        StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 0.75f));
     }
 
     private void AntiCheatDetection()
