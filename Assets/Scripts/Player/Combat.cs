@@ -103,12 +103,12 @@ public class Combat : InteractionHistory
         {
             NotifyAdults(Interaction.Kick, hit.collider.gameObject);
             //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.k);
-            billboardAnimator.Play(nameof(Interaction.Kick));
+            //billboardAnimator.Play(nameof(Interaction.Kick));
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
             //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
-            billboardAnimator.Play(nameof(Interaction.Kick));
+            //billboardAnimator.Play(nameof(Interaction.Kick));
             //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
             NotifyAdults(Interaction.Kick, null);
         }

@@ -35,6 +35,7 @@ namespace NPC
                 yield break;
 
             isBeingShoved = true;
+            rb.isKinematic = false;
             rb.AddForce(shoveDirection, ForceMode.Impulse);
             yield return new WaitForSeconds(shoveDuration);
 
@@ -44,6 +45,7 @@ namespace NPC
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.rotation = Quaternion.identity;
+            rb.isKinematic = true;
 
         }
     }
