@@ -605,6 +605,10 @@ PrefabInstance:
       propertyPath: transitionMoveDistance
       value: 1920
       objectReference: {fileID: 0}
+    - target: {fileID: 2635190836727442510, guid: 6d64108dac156a042bb78875528805d7, type: 3}
+      propertyPath: inputActionReferenceSOMETHING
+      value: 
+      objectReference: {fileID: -6345684177421631746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 3847101248559740272, guid: 6d64108dac156a042bb78875528805d7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.53632456

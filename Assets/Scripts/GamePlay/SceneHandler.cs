@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public enum SceneType
@@ -27,6 +28,23 @@ public class SceneHandler : MonoBehaviour
     private AsyncOperation asyncLoad;
     private bool leavingSceneLeft = false;
     [SerializeField] private float transitionMoveDistance = 9f;
+    
+    //BEISPIEL FÜR INPUT SYSTEM
+    public InputActionReference inputActionReferenceSOMETHING;
+
+    private void OnDisable() {
+        inputActionReferenceSOMETHING.action.performed -= OnSomething;
+    }
+    private void OnEnable() {
+        inputActionReferenceSOMETHING.action.performed += OnSomething;
+    }
+
+    private void OnSomething(InputAction.CallbackContext context) {
+        Debug.Log(context.action);
+        if(context.action == inputActionReferenceSOMETHING.action) {
+            Debug.Log("Something happened");
+        }
+    }
 
     private void Awake()
     {
@@ -52,6 +70,7 @@ public class SceneHandler : MonoBehaviour
         {
             Debug.LogError("No next scene in build order!");
         }
+
     }
 
     public static void GoToLastScene(int sceneIndexDecrement = 1)
