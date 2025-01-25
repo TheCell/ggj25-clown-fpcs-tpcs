@@ -64,14 +64,12 @@ public class Combat : MonoBehaviour
 
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
-            Debug.Log("Adult hit");
             NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.EyePoke);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            Debug.Log("Child hit");
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             billboardAnimator.Play(nameof(Interaction.BubbleBurst));
             hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
@@ -81,6 +79,27 @@ public class Combat : MonoBehaviour
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
     {
+        var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
+        Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
+
+        if (hit.collider == null)
+        {
+            return;
+        }
+
+        if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
+        {
+            NotifyAdults(Interaction.Kick, hit.collider.gameObject);
+            //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.k);
+            billboardAnimator.Play(nameof(Interaction.Kick));
+        }
+        else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        {
+            //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
+            billboardAnimator.Play(nameof(Interaction.Kick));
+            //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
+            NotifyAdults(Interaction.Kick, null);
+        }
     }
 
     private void NotifyAdults(Interaction interaction, GameObject objectToIgnore)
