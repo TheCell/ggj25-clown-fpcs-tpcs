@@ -11,7 +11,7 @@ public class Combat : MonoBehaviour
 
     private float notifyAdultsRadius = 10f;
     private float closeRangeCheck = 1f;
-    private bool drawDebug = true;
+    private bool drawDebug = false;
     
     private void Start()
     {
@@ -29,9 +29,6 @@ public class Combat : MonoBehaviour
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, notifyAdultsRadius);
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(interactionPosition.transform.position, closeRangeCheck);
         }
     }
 
@@ -53,9 +50,9 @@ public class Combat : MonoBehaviour
 
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
-        Physics.SphereCast(interactionPosition.transform.position, closeRangeCheck, transform.forward, out RaycastHit hit, closeRangeCheck);
-        Debug.DrawRay(interactionPosition.transform.position, transform.forward, Color.red, 1f);
-        Debug.Log(hit.collider);
+        var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
+        Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
+        
         if (hit.collider == null)
         {
             return;
