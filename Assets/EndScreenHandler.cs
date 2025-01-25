@@ -34,7 +34,7 @@ public class EndScreenHandler : MonoBehaviour
         bountyImage.transform.SetParent(imageHolder.transform);
         bountyImage.rectTransform.position = imageHolder.rectTransform.position + new Vector3(0, 0, -1);
         bountyImage.rectTransform.anchoredPosition = new Vector3(0, 0, 0);
-        bountyImage.rectTransform.sizeDelta = new Vector2(500, 500);
+        bountyImage.rectTransform.sizeDelta = bountyPoster.rect.size;
         bountyImage.sprite = bountyPoster;
         
         //Animate the poster by scaling it down and slightly moving it and slightly rotation it to make it look like it is slapped onto the surface
