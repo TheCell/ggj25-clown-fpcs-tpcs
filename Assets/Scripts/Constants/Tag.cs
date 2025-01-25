@@ -1,5 +1,6 @@
 ﻿public enum Tag
 {
     Adult,
-    Child
+    Child,
+    Player
 }
