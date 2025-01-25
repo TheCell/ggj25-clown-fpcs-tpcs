@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class Move : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private CharacterController controller;
+    [SerializeField] private Transform playerModel;
     [SerializeField] private InputActionReference move;
     [SerializeField] private InputActionReference sprint;
     private bool isRunning = false;
@@ -80,5 +82,10 @@ public class Move : MonoBehaviour
         velocity.y -= gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+        //Rotate towards direction
+        if (moveDirection != Vector3.zero)
+        {
+            playerModel.rotation = Quaternion.LookRotation(moveDirection);
+        }
     }
 }
