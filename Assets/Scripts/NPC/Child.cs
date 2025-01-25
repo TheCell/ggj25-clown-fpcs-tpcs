@@ -6,10 +6,11 @@ namespace NPC
     public class Child : MonoBehaviour, IShovable
     {
         private bool isBeingShoved;
+        private Rigidbody rb;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-        
+            rb = GetComponent<Rigidbody>();
         }
 
         // Update is called once per frame
@@ -17,19 +18,23 @@ namespace NPC
         {
             if (isBeingShoved) return;
         }
+
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
         {
-            float elapsedTime = 0f;
-            Vector3 shovePerFrame = shoveDirection / (shoveDuration / Time.deltaTime);
+            if (isBeingShoved)
+                yield break;
 
             isBeingShoved = true;
-            while (elapsedTime < shoveDuration)
-            {
-                transform.Translate(shovePerFrame);
-                elapsedTime += Time.deltaTime;
-                yield return null;
-            }
+            rb.AddForce(shoveDirection, ForceMode.Impulse);
+            yield return new WaitForSeconds(shoveDuration);
+
             isBeingShoved = false;
+
+            //Reset RB and set it u pstraight again
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.rotation = Quaternion.identity;
+
         }
     }
 }

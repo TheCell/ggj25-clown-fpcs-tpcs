@@ -7,8 +7,8 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance { get; private set; }
     private Interaction lastInteraction;
-    public int combo { get; private set; } = 0;
-    public int score { get; private set; } = 1;
+    public int combo { get; private set; } = 1;
+    public int score { get; private set; } = 0;
     [SerializeField] private int comboCountdown = 5;
     [SerializeField] private TextMeshProUGUI comboText;
     [SerializeField] private TextMeshProUGUI scoreText;

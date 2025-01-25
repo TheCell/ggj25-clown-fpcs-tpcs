@@ -12,6 +12,7 @@ namespace Player
         [SerializeField] private Transform playerCapsuleTransform;
         [SerializeField] private float shoveDuration;
         [SerializeField] private float distanceBetweenPlayerAndShoveable;
+        [SerializeField] private float shovePower;
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -45,7 +46,7 @@ namespace Player
             {
                 if (hit.collider.gameObject.TryGetComponent(out IShovable shovable))
                 {
-                    StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * distanceBetweenPlayerAndShoveable, shoveDuration));
+                    StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * distanceBetweenPlayerAndShoveable * shovePower, shoveDuration));
                 }
             }
         }
