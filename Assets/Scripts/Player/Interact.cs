@@ -11,6 +11,7 @@ namespace Player
         [SerializeField] private Transform playerCapsuleTransform;
         [SerializeField] private float forwardDirectionRayLength;
         [SerializeField] private float upDirectionRayLength;
+        [SerializeField] private GameObject eyesGameObject;
         private bool hasObjectGrabbed;
         private GameObject grabbedObject;
         private GrabbableObject currentgrabbable;
@@ -66,6 +67,7 @@ namespace Player
                 {
                     grabbedObject = hit.collider.gameObject;
                     currentgrabbable = grabbableObject;
+                    Physics.IgnoreCollision(eyesGameObject.GetComponent<Collider>(), grabbedObject.GetComponent<Collider>());
                     currentRigidbody = grabbedObject.GetComponent<Rigidbody>();
                     currentCollider = grabbedObject.GetComponent<Collider>();
                     currentCollider.enabled = false;
