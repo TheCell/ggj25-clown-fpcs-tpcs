@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117d8b438d89b3f4ca3e554e4000853a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeUntilCopsArrive: 50
   isGamePaused: 0
   isTrueEnding: 1
+  score: 0
