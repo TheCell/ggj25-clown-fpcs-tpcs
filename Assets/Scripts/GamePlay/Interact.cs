@@ -16,22 +16,17 @@ namespace GamePlay
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            //inputActionReferenceInteract.action.performed += OnInteract;
         }
 
         private void OnEnable()
         {
-            Debug.Log("klasdjfikldaö 1");
             inputActionReferenceInteract.action.Enable();
             inputActionReferenceInteract.action.performed += OnInteract;
-            Debug.Log("klasdjfikldaö 2");
         }
         private void OnDisable()
         {
-            Debug.Log("klasdjfikldaö 3");
             inputActionReferenceInteract.action.performed -= OnInteract;
             inputActionReferenceInteract.action.Disable();
-            Debug.Log("klasdjfikldaöv 4");
         }
         // Update is called once per frame
         void Update()

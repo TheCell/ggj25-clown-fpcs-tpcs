@@ -181,6 +181,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7041726771834291085, guid: beb1a3c548b623b4ea98c5e5838f2c59, type: 3}
       insertIndex: -1
       addedObject: {fileID: 971233452}
+    - targetCorrespondingSourceObject: {fileID: 7041726771834291085, guid: beb1a3c548b623b4ea98c5e5838f2c59, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 971233458}
   m_SourcePrefab: {fileID: 100100000, guid: beb1a3c548b623b4ea98c5e5838f2c59, type: 3}
 --- !u!1 &426526098
 GameObject:
@@ -194,8 +197,8 @@ GameObject:
   - component: {fileID: 426526103}
   - component: {fileID: 426526102}
   - component: {fileID: 426526101}
-  - component: {fileID: 426526100}
   - component: {fileID: 426526099}
+  - component: {fileID: 426526108}
   m_Layer: 0
   m_Name: Child (1)
   m_TagString: Untagged
@@ -228,20 +231,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &426526100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 426526098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a63a402b7ebe48041af8862f5b77422b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &426526101
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -331,6 +322,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &426526108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426526098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a63a402b7ebe48041af8862f5b77422b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &971233450 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7041726771834291085, guid: beb1a3c548b623b4ea98c5e5838f2c59, type: 3}
@@ -356,6 +359,19 @@ MonoBehaviour:
   inputActionReferenceInteract: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   hasObjectGrabbed: 1
   grabbedObject: {fileID: 1531072169}
+--- !u!114 &971233458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971233450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 222c3953b8de0e94a8614844406b919b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputActionReferenceShove: {fileID: 42292933995951447, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &1531072169
 GameObject:
   m_ObjectHideFlags: 0
