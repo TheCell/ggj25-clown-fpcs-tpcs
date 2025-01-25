@@ -206,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 2592167519276825268}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6de6b1e3e50f4ae46bd207e91737a893, type: 2}
+  m_Controller: {fileID: 9100000, guid: e822d4d50cdda5c46b8c22098f3c2679, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -413,6 +413,7 @@ MonoBehaviour:
   playerModel: {fileID: 4929113400938513868}
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  canMove: 1
 --- !u!114 &2087917759645374776
 MonoBehaviour:
   m_ObjectHideFlags: 0

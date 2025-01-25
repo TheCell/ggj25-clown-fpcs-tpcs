@@ -1,3 +1,4 @@
+using NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -71,9 +72,10 @@ public class Combat : MonoBehaviour
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
             Debug.Log("Child hit");
-            NotifyAdults(Interaction.BubbleBurst, null);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             billboardAnimator.Play(nameof(Interaction.BubbleBurst));
+            hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
+            NotifyAdults(Interaction.BubbleBurst, null);
         }
     }
 

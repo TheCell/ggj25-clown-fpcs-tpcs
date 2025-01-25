@@ -20,7 +20,7 @@ namespace NPC
 
         public void BubbleBurstHappened()
         {
-            // todo
+            Debug.Log("Bubble Burst");
         }
 
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
