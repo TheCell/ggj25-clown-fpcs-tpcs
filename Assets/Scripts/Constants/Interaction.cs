@@ -4,4 +4,5 @@ public enum Interaction
     Kick,
     BubbleBurst,
     Shove,
+    Witness
 }

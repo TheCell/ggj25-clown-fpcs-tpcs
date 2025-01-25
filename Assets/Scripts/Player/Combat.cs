@@ -65,7 +65,7 @@ public class Combat : MonoBehaviour
         {
             if (adult.CompareTag(nameof(Tag.Adult)))
             {
-                adult.GetComponent<Adult>().InterruptHappened();
+                adult.GetComponentInParent<Adult>().InterruptHappened();
                 witnessCount++;
             }
         }
