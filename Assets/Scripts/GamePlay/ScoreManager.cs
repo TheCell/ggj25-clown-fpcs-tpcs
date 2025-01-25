@@ -11,7 +11,9 @@ public class ScoreManager : MonoBehaviour
     public int score { get; private set; } = 0;
     [SerializeField] private int comboCountdown = 5;
     [SerializeField] private TextMeshProUGUI comboText;
+    [SerializeField] private Image comboBackground;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Image scoreBackground;
     [SerializeField] private Slider comboCountdownSlider;
     public ScoreEvent scoreEvent;
 
@@ -42,8 +44,9 @@ public class ScoreManager : MonoBehaviour
             {
                 combo = 1;
                 UpdateComboUI();
-                StartCoroutine(ResetComboAnimation());
-                StartCoroutine(ScaleUpDownAnimation());
+                StartCoroutine(FlashTextRed(comboText));
+                StartCoroutine(ScaleUpDownAnimation(comboText.rectTransform, 0.5f));
+                StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 0.75f));
             }
         }
     }
@@ -72,17 +75,20 @@ public class ScoreManager : MonoBehaviour
         if (interaction == lastInteraction)
         {
             combo = 1;
-            StartCoroutine(ResetComboAnimation());
+            StartCoroutine(FlashTextRed(comboText));
+            StartCoroutine(ScaleUpDownAnimation(comboText.rectTransform, 0.5f));
+            StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 0.75f));
         }
         else
         {
             combo++;
+            StartCoroutine(ScaleUpDownAnimation(comboText.rectTransform, 1.25f));
+            StartCoroutine(ScaleUpDownAnimation(comboBackground.rectTransform, 1.5f));
         }
 
-        StartCoroutine(ScaleUpDownAnimation());
         UpdateComboUI();
         lastInteraction = interaction;
-        
+
         AntiCheatDetection();
     }
 
@@ -104,30 +110,30 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ResetComboAnimation()
+    private IEnumerator FlashTextRed(TextMeshProUGUI text)
     {
-        Color startColor = Color.white;
+        Color startColor = Color.black;
         Color MiddleColor = Color.red;
         float animationDuration = 0.5f;
         float elapsedTime = 0f;
         while (elapsedTime < animationDuration)
         {
             elapsedTime += Time.deltaTime;
-            comboText.color = Color.Lerp(startColor, MiddleColor, Mathf.PingPong(elapsedTime / animationDuration, animationDuration));
+            text.color = Color.Lerp(startColor, MiddleColor, Mathf.PingPong(elapsedTime / animationDuration, animationDuration));
             yield return null;
         }
     }
 
-    private IEnumerator ScaleUpDownAnimation()
+    private IEnumerator ScaleUpDownAnimation(RectTransform rectTransform, float intensity)
     {
         Vector3 startScale = Vector3.one;
-        Vector3 endScale = startScale * 1.5f;
+        Vector3 endScale = startScale * intensity;
         float animationDuration = 0.5f;
         float elapsedTime = 0f;
         while (elapsedTime < animationDuration)
         {
             elapsedTime += Time.deltaTime;
-            comboText.transform.localScale = Vector3.Lerp(startScale, endScale, Mathf.PingPong(elapsedTime / animationDuration, animationDuration));
+            rectTransform.localScale = Vector3.Lerp(startScale, endScale, Mathf.PingPong(elapsedTime / animationDuration, animationDuration));
             yield return null;
         }
     }
