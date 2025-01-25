@@ -2,6 +2,7 @@ using NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(AudioSource))]
 public class Combat : InteractionHistory
 {
     [SerializeField] private InputActionReference attackTop;
@@ -11,7 +12,7 @@ public class Combat : InteractionHistory
     [SerializeField] private Material[] billboardMaterials;
     [SerializeField] private GameObject billboard;
     private ScoreManager scoreManager;
-
+    private AudioSource audioSource;
 
     private float notifyAdultsRadius = 10f;
     private float closeRangeCheck = 1f;
@@ -19,7 +20,8 @@ public class Combat : InteractionHistory
     
     private void Start()
     {
-        scoreManager = Object.FindObjectsByType<ScoreManager>(FindObjectsSortMode.InstanceID)[0];
+        scoreManager = ScoreManager.instance;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -102,6 +104,7 @@ public class Combat : InteractionHistory
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
             NotifyAdults(Interaction.Kick, hit.collider.gameObject);
+            audioSource.PlayOneShot(audioSource.clip);
             //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.k);
             //billboardAnimator.Play(nameof(Interaction.Kick));
         }
@@ -111,6 +114,7 @@ public class Combat : InteractionHistory
             //billboardAnimator.Play(nameof(Interaction.Kick));
             //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
             NotifyAdults(Interaction.Kick, null);
+            audioSource.PlayOneShot(audioSource.clip);
         }
     }
 
