@@ -1,4 +1,5 @@
 ﻿public enum Tag
 {
-    Adult
+    Adult,
+    Child
 }

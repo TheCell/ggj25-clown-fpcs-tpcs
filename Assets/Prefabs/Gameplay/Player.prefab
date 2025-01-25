@@ -218,6 +218,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &4876826252040973641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6314098355233995921}
+  m_Layer: 0
+  m_Name: InteractionPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6314098355233995921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4876826252040973641}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.008000135, z: 0.831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4929113400938513868}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5828289103972215431
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +282,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1071771723750713302}
+  - {fileID: 6314098355233995921}
   m_Father: {fileID: 5428993188600036423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &674845689127191594
@@ -427,6 +459,7 @@ MonoBehaviour:
   attackTop: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   attackBottom: {fileID: -6345684177421631746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   billboardAnimator: {fileID: 4620418501966119058}
+  interactionPosition: {fileID: 4876826252040973641}
 --- !u!136 &3488896431856158960
 CapsuleCollider:
   m_ObjectHideFlags: 0
