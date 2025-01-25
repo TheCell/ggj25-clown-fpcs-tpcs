@@ -7,8 +7,9 @@ using UnityEngine.AI;
 public class Adult : MonoBehaviour, IShovable
 {
     [SerializeField] private Transform[] points;
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator billboardAnimator;
     [SerializeField] private GameObject billboard;
+
     private bool isBeingShoved;
     private AudioSource audioSource;
     private Vector3 billboardRelatieOffset;
@@ -16,18 +17,32 @@ public class Adult : MonoBehaviour, IShovable
     private int destPoint = 0;
     private NavMeshAgent agent;
 
-    public void InterruptHappened()
+    public void WitnessHappened()
     {
         agent.isStopped = true;
 
         billboard.transform.position = agent.transform.position + billboardRelatieOffset;
-        animator.Play(nameof(Interaction.Witness));
+        billboardAnimator.Play(nameof(Interaction.Witness));
         StartCoroutine(PlayAudioRandomDelayed());
 
-        Invoke(nameof(InterruptEnded), 2f);
+        Invoke(nameof(WitnessEnded), 2f);
     }
 
-    private void InterruptEnded()
+    private void WitnessEnded()
+    {
+        agent.isStopped = false;
+    }
+
+    public void EyePokeHappened()
+    {
+        agent.isStopped = true;
+        billboard.transform.position = agent.transform.position + billboardRelatieOffset;
+        billboardAnimator.Play(nameof(Interaction.EyePoke));
+        //StartCoroutine(PlayAudioRandomDelayed());
+        Invoke(nameof(EyePokeEnded), 2f);
+    }
+
+    private void EyePokeEnded()
     {
         agent.isStopped = false;
     }
@@ -86,7 +101,7 @@ public class Adult : MonoBehaviour, IShovable
     {
         float elapsedTime = 0f;
         Vector3 shovePerFrame = shoveDirection / (shoveDuration / Time.deltaTime);
-        
+
         isBeingShoved = true;
         agent.enabled = false;
 

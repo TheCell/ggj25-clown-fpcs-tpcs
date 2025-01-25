@@ -7,16 +7,20 @@ namespace NPC
     {
         private bool isBeingShoved;
         private Rigidbody rb;
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        
+        private void Start()
         {
             rb = GetComponent<Rigidbody>();
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             if (isBeingShoved) return;
+        }
+
+        public void BubbleBurstHappened()
+        {
+            // todo
         }
 
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)

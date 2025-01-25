@@ -365,7 +365,7 @@ MonoBehaviour:
   points:
   - {fileID: 6459803099604992855}
   - {fileID: 4311857361979126227}
-  animator: {fileID: 7087527083882377263}
+  billboardAnimator: {fileID: 7087527083882377263}
   billboard: {fileID: 800058985213044399}
 --- !u!82 &6068624593523481566
 AudioSource:

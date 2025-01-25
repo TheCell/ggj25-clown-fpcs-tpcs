@@ -7,7 +7,10 @@ public class Combat : MonoBehaviour
     [SerializeField] private InputActionReference attackBottom;
     [SerializeField] Animator billboardAnimator;
     [SerializeField] GameObject interactionPosition;
+    [SerializeField] private Material[] billboardMaterials;
+    [SerializeField] private GameObject billboard;
     private ScoreManager scoreManager;
+
 
     private float notifyAdultsRadius = 10f;
     private float closeRangeCheck = 1f;
@@ -60,12 +63,16 @@ public class Combat : MonoBehaviour
 
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
+            Debug.Log("Adult hit");
             NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
+            billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.EyePoke);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
+            Debug.Log("Child hit");
             NotifyAdults(Interaction.BubbleBurst, null);
+            billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             billboardAnimator.Play(nameof(Interaction.BubbleBurst));
         }
     }
@@ -88,11 +95,25 @@ public class Combat : MonoBehaviour
 
             if (adult.CompareTag(nameof(Tag.Adult)))
             {
-                adult.GetComponentInParent<Adult>().InterruptHappened();
+                adult.GetComponentInParent<Adult>().WitnessHappened();
                 witnessCount++;
             }
         }
 
         scoreManager.scoreEvent.Invoke(interaction, witnessCount);
+    }
+
+    private Material GetBillboardMaterial(Interaction interaction)
+    {
+        switch (interaction)
+        {
+            case Interaction.EyePoke:
+                return billboardMaterials[0];
+            case Interaction.BubbleBurst:
+                return billboardMaterials[1];
+            default:
+                Debug.LogError("No material found for interaction: " + interaction);
+                throw new System.ArgumentException();
+        }
     }
 }

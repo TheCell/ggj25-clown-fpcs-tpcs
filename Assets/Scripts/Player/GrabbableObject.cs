@@ -51,7 +51,7 @@ namespace Player
                 {
                     if (adult.CompareTag(nameof(Tag.Adult)))
                     {
-                        adult.GetComponentInParent<Adult>().InterruptHappened();
+                        adult.GetComponentInParent<Adult>().WitnessHappened();
                         adultAmount++;
                     }
                 }
