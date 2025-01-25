@@ -107,23 +107,23 @@ public class Combat : InteractionHistory
             if (!adult.HasInteractedWith(Interaction.Kick))
             {
                 audioSource.PlayOneShot(audioSource.clip);
+                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
+                billboardAnimator.Play(nameof(Interaction.Kick));
                 adult.KickHappened();
                 NotifyAdults(Interaction.Kick, hit.collider.gameObject);
             }
-            //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.k);
-            //billboardAnimator.Play(nameof(Interaction.Kick));
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
-            //billboardAnimator.Play(nameof(Interaction.Kick));
             //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
             var child = hit.collider.gameObject.GetComponent<Child>();
             if (!child.HasInteractedWith(Interaction.Kick))
             {
                 audioSource.PlayOneShot(audioSource.clip);
-                NotifyAdults(Interaction.Kick, null);
+                billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
+                billboardAnimator.Play(nameof(Interaction.Kick));
                 child.KickHappened();
+                NotifyAdults(Interaction.Kick, null);
             }
         }
     }
@@ -158,6 +158,8 @@ public class Combat : InteractionHistory
                 return billboardMaterials[0];
             case Interaction.BubbleBurst:
                 return billboardMaterials[1];
+            case Interaction.Kick:
+                return billboardMaterials[2];
             default:
                 Debug.LogError("No material found for interaction: " + interaction);
                 throw new System.ArgumentException();
