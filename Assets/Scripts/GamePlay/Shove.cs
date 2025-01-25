@@ -8,6 +8,7 @@ namespace GamePlay
     public class Shove : MonoBehaviour
     {
         [SerializeField] private InputActionReference inputActionReferenceShove;
+        [SerializeField] private Transform playerCapsuleTransform;
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -18,7 +19,7 @@ namespace GamePlay
         // Update is called once per frame
         void Update()
         {
-            Debug.DrawRay(transform.position, transform.forward * 1.5f, Color.blue);
+            Debug.DrawRay(playerCapsuleTransform.position, playerCapsuleTransform.forward * 1.5f, Color.blue);
         }
         private void OnEnable()
         {
@@ -34,14 +35,14 @@ namespace GamePlay
         {
             Debug.Log("Shove");
             
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward);
             int layerMask = ~LayerMask.GetMask("Ignore Raycast");
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2, layerMask))
             {
                 if (hit.collider.gameObject.TryGetComponent(out IShovable shovable))
                 {
-                    StartCoroutine(shovable.GetShoved(transform.forward * 2));
+                    StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * 2));
                 }
             }
         }

@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActionReferenceShove: {fileID: 42292933995951447, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  playerCapsuleTransform: {fileID: 4929113400938513868}
 --- !u!1 &8183879174012100022
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ namespace GamePlay
     /*
     public IEnumerator GetShoved(Vector3 shoveDirection)
     {
+        isBeingShoved = true;
         float duration = 1f;
         float elapsedTime = 0f;
         Vector3 shovePerFrame = shoveDirection / (duration / Time.deltaTime);
@@ -21,6 +22,7 @@ namespace GamePlay
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        isBeingShoved = false;
     }
     */
 }

@@ -8,6 +8,7 @@ using UnityEngine.AI;
 public class Adult : MonoBehaviour, IShovable
 {
     [SerializeField] private Transform[] points;
+    private bool isBeingShoved;
     private AudioSource audioSource;
 
     private int destPoint = 0;
@@ -62,6 +63,7 @@ public class Adult : MonoBehaviour, IShovable
     {
         // Choose the next destination point when the agent gets
         // close to the current one.
+        if (isBeingShoved) return;
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             GotoNextPoint();
@@ -80,6 +82,9 @@ public class Adult : MonoBehaviour, IShovable
         float duration = 1f;
         float elapsedTime = 0f;
         Vector3 shovePerFrame = shoveDirection / (duration / Time.deltaTime);
+        
+        isBeingShoved = true;
+        agent.enabled = false;
 
         while (elapsedTime < duration)
         {
@@ -87,6 +92,8 @@ public class Adult : MonoBehaviour, IShovable
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        agent.enabled = true;
+        isBeingShoved = false;
     }
 
     private IEnumerator PlayAudioRandomDelayed()
