@@ -29,6 +29,16 @@ namespace NPC
             AddHasBeenInteractedWith(Interaction.BubbleBurst);
         }
 
+        public void KickHappened()
+        {
+            if (HasInteractedWith(Interaction.Kick))
+            {
+                return;
+            }
+
+            AddHasBeenInteractedWith(Interaction.Kick);
+        }
+
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
         {
             if (isBeingShoved)

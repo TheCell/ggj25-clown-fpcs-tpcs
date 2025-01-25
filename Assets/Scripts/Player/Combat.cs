@@ -104,8 +104,13 @@ public class Combat : InteractionHistory
 
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
-            NotifyAdults(Interaction.Kick, hit.collider.gameObject);
-            audioSource.PlayOneShot(audioSource.clip);
+            var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
+            if (!adult.HasInteractedWith(Interaction.Kick))
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+                adult.KickHappened();
+                NotifyAdults(Interaction.Kick, hit.collider.gameObject);
+            }
             //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.k);
             //billboardAnimator.Play(nameof(Interaction.Kick));
         }
@@ -114,8 +119,13 @@ public class Combat : InteractionHistory
             //billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             //billboardAnimator.Play(nameof(Interaction.Kick));
             //hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
-            NotifyAdults(Interaction.Kick, null);
-            audioSource.PlayOneShot(audioSource.clip);
+            var child = hit.collider.gameObject.GetComponent<Child>();
+            if (!child.HasInteractedWith(Interaction.Kick))
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+                NotifyAdults(Interaction.Kick, null);
+                child.KickHappened();
+            }
         }
     }
 
