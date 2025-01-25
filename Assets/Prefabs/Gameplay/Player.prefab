@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 2587105986953760862}
   - component: {fileID: 2457713375001642454}
   - component: {fileID: 7479239952489998892}
+  - component: {fileID: 2087917759645374776}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -272,6 +273,20 @@ MonoBehaviour:
   controller: {fileID: 2457713375001642454}
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   sprint: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+--- !u!114 &2087917759645374776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7041726771834291085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50334155d4048bd4884e9a371db13e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTop: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  attackBottom: {fileID: -6345684177421631746, guid: 052faaac586de48259a63d0c4782560b, type: 3}
 --- !u!1 &8183879174012100022
 GameObject:
   m_ObjectHideFlags: 0
