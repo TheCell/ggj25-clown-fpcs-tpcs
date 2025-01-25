@@ -490,7 +490,7 @@ MonoBehaviour:
   playerCapsuleTransform: {fileID: 4929113400938513868}
   shoveDuration: 0.5
   distanceBetweenPlayerAndShoveable: 2.5
-  shovePower: 100
+  shovePower: 3
 --- !u!1 &8183879174012100022
 GameObject:
   m_ObjectHideFlags: 0
