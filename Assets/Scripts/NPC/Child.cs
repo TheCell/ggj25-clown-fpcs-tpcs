@@ -3,14 +3,19 @@ using UnityEngine;
 
 namespace NPC
 {
+    [RequireComponent(typeof(AudioSource))]
     public class Child : InteractionHistory, IShovable
     {
+        [SerializeField] private GameObject balloon;
+
         private bool isBeingShoved;
         private Rigidbody rb;
-        
+        private AudioSource audioSource;
+
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -25,17 +30,13 @@ namespace NPC
                 return;
             }
 
-            Debug.Log("Bubble Burst");
+            audioSource.PlayOneShot(audioSource.clip);
+            Destroy(balloon);
             AddHasBeenInteractedWith(Interaction.BubbleBurst);
         }
 
         public void KickHappened()
         {
-            if (HasInteractedWith(Interaction.Kick))
-            {
-                return;
-            }
-
             AddHasBeenInteractedWith(Interaction.Kick);
         }
 

@@ -54,11 +54,6 @@ public class Adult : InteractionHistory, IShovable
 
     public void KickHappened()
     {
-        if (HasInteractedWith(Interaction.Kick))
-        {
-            return;
-        }
-
         agent.isStopped = true;
         //billboard.transform.position = agent.transform.position + billboardRelatieOffset;
         //billboardAnimator.Play(nameof(Interaction.Kick));
