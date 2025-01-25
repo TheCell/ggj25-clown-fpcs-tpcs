@@ -1,8 +1,9 @@
 using System;
+using NPC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace GamePlay
+namespace Player
 {
     [Serializable]
     public class Shove : MonoBehaviour

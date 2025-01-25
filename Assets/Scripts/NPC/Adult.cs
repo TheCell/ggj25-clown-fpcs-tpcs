@@ -1,5 +1,5 @@
 using System.Collections;
-using GamePlay;
+using NPC;
 using UnityEngine;
 using UnityEngine.AI;
 

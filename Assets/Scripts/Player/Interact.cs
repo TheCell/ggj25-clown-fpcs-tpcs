@@ -1,11 +1,8 @@
 using System;
-using Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
-using Random = System.Random;
 
-namespace GamePlay
+namespace Player
 {
     [Serializable]
     public class Interact : MonoBehaviour
