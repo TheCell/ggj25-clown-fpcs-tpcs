@@ -83,18 +83,21 @@ public class Combat : InteractionHistory
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            if (hit.collider.gameObject.GetComponent<InteractionHistory>().HasInteractedWith(Interaction.BubbleBurst))
+            var child = hit.collider.gameObject.GetComponent<Child>();
+            if (child.HasInteractedWith(Interaction.BubbleBurst))
             {
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
                 billboardAnimator.Play(nameof(Interaction.Strike));
                 scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
+                child.SetEmotion(Emotion.Depressed);
 
                 return;
             }
 
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             billboardAnimator.Play(nameof(Interaction.BubbleBurst));
-            hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();
+            child.BubbleBurstHappened();
+            child.SetEmotion(Emotion.Sad);
             NotifyAdults(Interaction.BubbleBurst, null);
         }
     }

@@ -7,6 +7,9 @@ namespace NPC
     public class Child : InteractionHistory, IShovable
     {
         [SerializeField] private GameObject balloon;
+        [SerializeField] Animator emotionBillboardAnimator;
+        [SerializeField] private Material[] emotionBillboardMaterials;
+        [SerializeField] private GameObject emotionBillboard;
 
         private bool isBeingShoved;
         private Rigidbody rb;
@@ -40,6 +43,13 @@ namespace NPC
             AddHasBeenInteractedWith(Interaction.Kick);
         }
 
+        public void SetEmotion(Emotion emotion)
+        {
+            Material material = GetBillboardMaterial(emotion);
+            emotionBillboard.GetComponent<MeshRenderer>().material = material;
+            emotionBillboardAnimator.Play(emotion.ToString());
+        }
+
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
         {
             if (isBeingShoved)
@@ -58,6 +68,22 @@ namespace NPC
             rb.rotation = Quaternion.identity;
             rb.isKinematic = true;
 
+        }
+
+        private Material GetBillboardMaterial(Emotion emotion)
+        {
+            switch (emotion)
+            {
+                case Emotion.Happy:
+                    return emotionBillboardMaterials[0];
+                case Emotion.Sad:
+                    return emotionBillboardMaterials[1];
+                case Emotion.Depressed:
+                    return emotionBillboardMaterials[2];
+                default:
+                    Debug.LogError("No emotion found for interaction: " + emotion);
+                    throw new System.ArgumentException();
+            }
         }
     }
 }
