@@ -5,7 +5,7 @@ namespace GamePlay
 {
     public interface IShovable
     {
-        IEnumerator GetShoved(Vector3 shoveDirection);
+        IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration);
     }
     // This is an example of how to implement the IShovable interface
     /*

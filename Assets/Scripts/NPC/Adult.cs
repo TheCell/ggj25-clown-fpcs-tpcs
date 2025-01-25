@@ -77,16 +77,15 @@ public class Adult : MonoBehaviour, IShovable
             points[i].SetParent(null, true);
         }
     }
-    public IEnumerator GetShoved(Vector3 shoveDirection)
+    public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
     {
-        float duration = 1f;
         float elapsedTime = 0f;
-        Vector3 shovePerFrame = shoveDirection / (duration / Time.deltaTime);
+        Vector3 shovePerFrame = shoveDirection / (shoveDuration / Time.deltaTime);
         
         isBeingShoved = true;
         agent.enabled = false;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < shoveDuration)
         {
             transform.Translate(shovePerFrame);
             elapsedTime += Time.deltaTime;

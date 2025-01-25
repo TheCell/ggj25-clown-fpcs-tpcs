@@ -9,6 +9,8 @@ namespace GamePlay
     {
         [SerializeField] private InputActionReference inputActionReferenceShove;
         [SerializeField] private Transform playerCapsuleTransform;
+        [SerializeField] private float shoveDuration;
+        [SerializeField] private float distanceBetweenPlayerAndShoveable;
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
@@ -19,7 +21,7 @@ namespace GamePlay
         // Update is called once per frame
         void Update()
         {
-            Debug.DrawRay(playerCapsuleTransform.position, playerCapsuleTransform.forward * 1.5f, Color.blue);
+            Debug.DrawRay(playerCapsuleTransform.position, playerCapsuleTransform.forward * distanceBetweenPlayerAndShoveable, Color.blue);
         }
         private void OnEnable()
         {
@@ -42,7 +44,7 @@ namespace GamePlay
             {
                 if (hit.collider.gameObject.TryGetComponent(out IShovable shovable))
                 {
-                    StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * 2));
+                    StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * distanceBetweenPlayerAndShoveable, shoveDuration));
                 }
             }
         }
