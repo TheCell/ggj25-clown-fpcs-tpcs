@@ -1,10 +1,11 @@
 using System.Collections;
+using GamePlay;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(AudioSource))]
-public class Adult : MonoBehaviour
+public class Adult : MonoBehaviour, IShovable
 {
     [SerializeField] private Transform[] points;
     private AudioSource audioSource;
@@ -72,6 +73,19 @@ public class Adult : MonoBehaviour
         for (var i = points.Length - 1; i >= 0; i--)
         {
             points[i].SetParent(null, true);
+        }
+    }
+    public IEnumerator GetShoved(Vector3 shoveDirection)
+    {
+        float duration = 1f;
+        float elapsedTime = 0f;
+        Vector3 shovePerFrame = shoveDirection / (duration / Time.deltaTime);
+
+        while (elapsedTime < duration)
+        {
+            transform.Translate(shovePerFrame);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
     }
 

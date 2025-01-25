@@ -71,6 +71,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Shove"",
+                    ""type"": ""Button"",
+                    ""id"": ""56fea1f7-b99c-4c62-9dbc-c476b6a6b133"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -346,6 +355,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91252c0b-91fa-418e-bc03-97a8fb4dcec3"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Shove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -938,6 +958,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_AttackTop = m_Player.FindAction("AttackTop", throwIfNotFound: true);
         m_Player_AttackBottom = m_Player.FindAction("AttackBottom", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Shove = m_Player.FindAction("Shove", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1022,6 +1043,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AttackTop;
     private readonly InputAction m_Player_AttackBottom;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Shove;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1031,6 +1053,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @AttackTop => m_Wrapper.m_Player_AttackTop;
         public InputAction @AttackBottom => m_Wrapper.m_Player_AttackBottom;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Shove => m_Wrapper.m_Player_Shove;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1055,6 +1078,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Shove.started += instance.OnShove;
+            @Shove.performed += instance.OnShove;
+            @Shove.canceled += instance.OnShove;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1074,6 +1100,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Shove.started -= instance.OnShove;
+            @Shove.performed -= instance.OnShove;
+            @Shove.canceled -= instance.OnShove;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1261,6 +1290,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnAttackTop(InputAction.CallbackContext context);
         void OnAttackBottom(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnShove(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
