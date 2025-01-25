@@ -11,7 +11,6 @@ namespace Player
         [SerializeField] private Transform playerCapsuleTransform;
         [SerializeField] private float forwardDirectionRayLength;
         [SerializeField] private float upDirectionRayLength;
-        [SerializeField] private GameObject eyesGameObject;
         private bool hasObjectGrabbed;
         private GameObject grabbedObject;
         private GrabbableObject currentgrabbable;
