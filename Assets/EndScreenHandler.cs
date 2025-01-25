@@ -32,6 +32,7 @@ public class EndScreenHandler : MonoBehaviour
         //Create new image under the image holder for the bounty
         Image bountyImage = new GameObject("BountyImage").AddComponent<Image>();
         bountyImage.transform.SetParent(imageHolder.transform);
+        bountyImage.rectTransform.position = imageHolder.rectTransform.position + new Vector3(0, 0, -1);
         bountyImage.rectTransform.anchoredPosition = new Vector3(0, 0, 0);
         bountyImage.rectTransform.sizeDelta = new Vector2(500, 500);
         bountyImage.sprite = bountyPoster;
@@ -41,7 +42,6 @@ public class EndScreenHandler : MonoBehaviour
         while (time < 1)
         {
             bountyImage.rectTransform.localScale = Vector3.one * bountySlapOntoSurfaceCurve.Evaluate(time);
-            bountyImage.rectTransform.anchoredPosition = new Vector3(0, 0, 0) + new Vector3(0, -50, 0) * bountySlapOntoSurfaceCurve.Evaluate(time);
             bountyImage.rectTransform.localEulerAngles = new Vector3(0, 0, 360) * bountySlapOntoSurfaceCurve.Evaluate(time);
             time += Time.deltaTime;
             yield return null;

@@ -28,20 +28,24 @@ public class SceneHandler : MonoBehaviour
     private AsyncOperation asyncLoad;
     private bool leavingSceneLeft = false;
     [SerializeField] private float transitionMoveDistance = 9f;
-    
+
     //BEISPIEL FÜR INPUT SYSTEM
     public InputActionReference inputActionReferenceSOMETHING;
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         inputActionReferenceSOMETHING.action.performed -= OnSomething;
     }
-    private void OnEnable() {
+    private void OnEnable()
+    {
         inputActionReferenceSOMETHING.action.performed += OnSomething;
     }
 
-    private void OnSomething(InputAction.CallbackContext context) {
+    private void OnSomething(InputAction.CallbackContext context)
+    {
         Debug.Log(context.action);
-        if(context.action == inputActionReferenceSOMETHING.action) {
+        if (context.action == inputActionReferenceSOMETHING.action)
+        {
             Debug.Log("Something happened");
         }
     }
@@ -62,6 +66,12 @@ public class SceneHandler : MonoBehaviour
     public static void GoToNextScene(int sceneIndexIncrement = 1)
     {
         int nextSceneIndex = (int)Instance.currentScene + sceneIndexIncrement;
+
+        if ((SceneType)nextSceneIndex == SceneType.GAMESCENE)
+        {
+            GameManager.Instance.isGamePaused = false;
+        }
+
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             Instance.SwitchScene((SceneType)nextSceneIndex);
