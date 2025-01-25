@@ -64,12 +64,24 @@ public class Combat : InteractionHistory
 
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
+            var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
+            if (adult.HasInteractedWith(Interaction.EyePoke))
+            {
+                return;
+            }
+
             NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.EyePoke);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
+            adult.EyePokeHappened();
         }
         else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
+            if (hit.collider.gameObject.GetComponent<InteractionHistory>().HasInteractedWith(Interaction.BubbleBurst))
+            {
+                return;
+            }
+
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.BubbleBurst);
             billboardAnimator.Play(nameof(Interaction.BubbleBurst));
             hit.collider.gameObject.GetComponent<Child>().BubbleBurstHappened();

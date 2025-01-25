@@ -20,7 +20,13 @@ namespace NPC
 
         public void BubbleBurstHappened()
         {
+            if (HasInteractedWith(Interaction.BubbleBurst))
+            {
+                return;
+            }
+
             Debug.Log("Bubble Burst");
+            AddHasBeenInteractedWith(Interaction.BubbleBurst);
         }
 
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)

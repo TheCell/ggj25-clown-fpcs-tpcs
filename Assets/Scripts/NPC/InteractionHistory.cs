@@ -1,11 +1,21 @@
-﻿using UnityEngine;
+﻿using Mono.Collections.Generic;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class InteractionHistory : MonoBehaviour
 {
-    //private 
+    private List<Interaction> receivedInteractions = new List<Interaction>();
 
-    private void AddHasBeenInteractedWith(Interaction interaction)
+    public bool HasInteractedWith(Interaction interaction)
     {
-        // Add the interaction to the list of interactions
+        return receivedInteractions.Contains(interaction);
+    }
+
+    protected void AddHasBeenInteractedWith(Interaction interaction)
+    {
+        if (!receivedInteractions.Contains(interaction))
+        {
+            receivedInteractions.Add(interaction);
+        }
     }
 }

@@ -35,11 +35,17 @@ public class Adult : InteractionHistory, IShovable
 
     public void EyePokeHappened()
     {
+        if (HasInteractedWith(Interaction.EyePoke))
+        {
+            return;
+        }
+
         agent.isStopped = true;
-        billboard.transform.position = agent.transform.position + billboardRelatieOffset;
-        billboardAnimator.Play(nameof(Interaction.EyePoke));
+        //billboard.transform.position = agent.transform.position + billboardRelatieOffset;
+        //billboardAnimator.Play(nameof(Interaction.EyePoke));
         //StartCoroutine(PlayAudioRandomDelayed());
         Invoke(nameof(EyePokeEnded), 2f);
+        AddHasBeenInteractedWith(Interaction.EyePoke);
     }
 
     private void EyePokeEnded()
