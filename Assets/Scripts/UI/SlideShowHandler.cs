@@ -36,6 +36,7 @@ public class SlideShowHandler : MonoBehaviour
 
         if (currentSlide <= 0)
         {
+            currentSlide = 0;
             return;
         }
 

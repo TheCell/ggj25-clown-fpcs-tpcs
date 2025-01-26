@@ -315,10 +315,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.236383, g: 0.54102015, b: 0.9056604, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9245283, g: 0.65585893, b: 0.28782475, a: 1}
     m_PressedColor: {r: 0.5283019, g: 0.37860063, b: 0.06479168, a: 1}
-    m_SelectedColor: {r: 0.9528302, g: 0.36536795, b: 0.05842829, a: 1}
+    m_SelectedColor: {r: 1, g: 0.4392157, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -370,8 +370,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8df8fd4725d39914c9ad5ac19dab8e65, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1194,6 +1194,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88f10f9b43853b04e9d4791a256214d6, type: 3}
   - {fileID: 21300000, guid: 91b10f31fc6f5374c84e89bbedd2f6a9, type: 3}
   - {fileID: 21300000, guid: 108bc5ec3fdbcab4ea506227f8b5f1d8, type: 3}
+  - {fileID: 21300000, guid: 438f5937cf87b7f4596f2d0d378a6a58, type: 3}
   slideTexts:
   - 
   - 
@@ -1202,6 +1203,7 @@ MonoBehaviour:
   - 'But now...everyone is TOO happy! We can''t make money anymore! '
   - So we hired YOU to make everyone unhappy again. They will use our services again
     and the economy's balance will be restored!
+  - 
 --- !u!4 &1275691976
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,10 +1279,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.236383, g: 0.54102015, b: 0.9056604, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9245283, g: 0.65585893, b: 0.28782475, a: 1}
     m_PressedColor: {r: 0.5283019, g: 0.37860063, b: 0.06479168, a: 1}
-    m_SelectedColor: {r: 0.9528302, g: 0.36536795, b: 0.05842829, a: 1}
+    m_SelectedColor: {r: 1, g: 0.4392157, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -1344,8 +1346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8df8fd4725d39914c9ad5ac19dab8e65, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1370,6 +1372,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1129219302445955049, guid: 220a9996e9369034aa4de2fb27beeb5b, type: 3}
+      propertyPath: timeUntilCopsArrive
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3489282010973714555, guid: 220a9996e9369034aa4de2fb27beeb5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7793076
@@ -1476,7 +1482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
