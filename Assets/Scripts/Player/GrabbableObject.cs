@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NPC;
@@ -53,7 +54,7 @@ namespace Player
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
                 transform.rotation = Quaternion.identity;
-                rb.isKinematic = true;
+                StartCoroutine(SetKinematicInASec(true));
             }
         }
 
@@ -90,6 +91,12 @@ namespace Player
                 scoreManager.scoreEvent.Invoke(Interaction.Throw, adultAmount);
             }
 
+        }
+
+        private IEnumerator SetKinematicInASec(bool isKinematic)
+        {
+            yield return new WaitForSeconds(1);
+            rb.isKinematic = isKinematic;
         }
     }
 }
