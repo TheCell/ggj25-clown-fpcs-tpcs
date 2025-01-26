@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 5447004235390145029}
   - component: {fileID: 3760659994893010817}
   - component: {fileID: 3942481578885373203}
+  - component: {fileID: 8266154984642433131}
   m_Layer: 0
   m_Name: Rope
   m_TagString: Untagged
@@ -169,7 +170,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 8d1602a27e1c66d4d949f348c002c964, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -308,6 +309,22 @@ MonoBehaviour:
   ropeAnchorPoints:
   - {fileID: 1363693335426862007}
   - {fileID: 6226870253235072890}
+--- !u!114 &8266154984642433131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1212970022410789918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36bb784470883a244898108cda33580f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perpendicularWind: 1
+  flipWindDirection: 0
+  windDirectionDegrees: 0
+  windForce: 17
 --- !u!1 &2111945357983223782
 GameObject:
   m_ObjectHideFlags: 0
