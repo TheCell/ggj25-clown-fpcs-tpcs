@@ -338,6 +338,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ebe3c62b-9a63-418d-ba63-8878e9c8bc0e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "91252c0b-91fa-418e-bc03-97a8fb4dcec3",
                     "path": "<Keyboard>/space",
                     "interactions": "",
