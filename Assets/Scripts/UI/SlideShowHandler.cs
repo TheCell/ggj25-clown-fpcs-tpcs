@@ -13,6 +13,8 @@ public class SlideShowHandler : MonoBehaviour
 
     public void NextSlide()
     {
+        currentSlide++;
+
         if (currentSlide >= slides.Length)
         {
             SceneHandler.GoToNextScene();
@@ -26,6 +28,22 @@ public class SlideShowHandler : MonoBehaviour
         else
             slideText.text = "";
 
-        currentSlide++;
+    }
+
+    public void PreviousSlide()
+    {
+        currentSlide--;
+
+        if (currentSlide <= 0)
+        {
+            return;
+        }
+
+        slideshowImage.sprite = slides[currentSlide];
+
+        if (currentSlide < slideTexts.Length && slideTexts[currentSlide] != null)
+            slideText.text = slideTexts[currentSlide];
+        else
+            slideText.text = "";
     }
 }
