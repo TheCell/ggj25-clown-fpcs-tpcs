@@ -341,6 +341,7 @@ GameObject:
   - component: {fileID: 2609392201412220055}
   - component: {fileID: 6068624593523481566}
   - component: {fileID: 615809354836569360}
+  - component: {fileID: 5254673230115580347}
   m_Layer: 0
   m_Name: Adult
   m_TagString: Adult
@@ -391,6 +392,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 78ad464dea1a2dd49962dcd6e9888844, type: 2}
   - {fileID: 2100000, guid: 86bdc2dcb1c9aec41971c8272732594a, type: 2}
   emotionBillboard: {fileID: 8232934198065485918}
+  gaspRandomSoundPlayer: {fileID: 615809354836569360}
+  heyRandomSoundPlayer: {fileID: 5254673230115580347}
 --- !u!82 &6068624593523481566
 AudioSource:
   m_ObjectHideFlags: 0
@@ -513,6 +516,34 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 46445087c485a1745835c5a5361ba85d, type: 3}
   - {fileID: 8300000, guid: 43e8a4f4e14bad142986a9cfcb8d1415, type: 3}
   - {fileID: 8300000, guid: 96b20df6d2165314fbb89e64042c376e, type: 3}
+--- !u!114 &5254673230115580347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578921607922369919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ff98125ca912942b336211d2f923dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 0636e2fa37068d54ba5b5a64cb885cf2, type: 3}
+  - {fileID: 8300000, guid: 507120691d81b934fb67e189b4d41904, type: 3}
+  - {fileID: 8300000, guid: b6544ccdfa5823549a8f30eee03f92ec, type: 3}
+  - {fileID: 8300000, guid: 51d4d02c629f06a41b93fd121b1e7763, type: 3}
+  - {fileID: 8300000, guid: f22895871ea93e64da76ae0b0091b7db, type: 3}
+  - {fileID: 8300000, guid: 4c268193fc71fe54a997c70cd0accd3a, type: 3}
+  - {fileID: 8300000, guid: e877dcf1cfd1f6d489ba3a7c7d7acad9, type: 3}
+  - {fileID: 8300000, guid: af3a656a3d734cf4589c9bdfad912678, type: 3}
+  - {fileID: 8300000, guid: 18bb0e4da6a70cb4597cc25ab2a01178, type: 3}
+  - {fileID: 8300000, guid: 6ef2d5948748b0c418557f8d82192b9a, type: 3}
+  - {fileID: 8300000, guid: 8e9ecaae329bc704bae569d9f708dc1b, type: 3}
+  - {fileID: 8300000, guid: 3147bbd7b78a0cc4bacb4aaa151c3109, type: 3}
+  - {fileID: 8300000, guid: 678883e4d20617f449ede5dcf14780a5, type: 3}
+  - {fileID: 8300000, guid: 4d02d6597c4eb404c8cf8dca126b6a04, type: 3}
+  - {fileID: 8300000, guid: fd05659db34ee104ba05b7c3b16f64df, type: 3}
 --- !u!1 &8232934198065485918
 GameObject:
   m_ObjectHideFlags: 0

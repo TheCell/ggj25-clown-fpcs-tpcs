@@ -54,6 +54,11 @@ namespace Player
             {
                 if (hit.collider.gameObject.TryGetComponent(out IShovable shovable))
                 {
+                    var adult = hit.collider.gameObject.GetComponent<Adult>();
+                    if (adult != null)
+                    {
+                        adult.Shove();
+                    }
                     StartCoroutine(shovable.GetShoved(playerCapsuleTransform.forward * distanceBetweenPlayerAndShoveable * shovePower, shoveDuration));
                 }
             }
