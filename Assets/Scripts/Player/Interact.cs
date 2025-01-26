@@ -17,6 +17,7 @@ namespace Player
         private GrabbableObject currentgrabbable;
         private Rigidbody currentRigidbody;
         private Collider currentCollider;
+        private float holdingLength = 1.5f;
         void Start()
         {
         }
@@ -36,7 +37,7 @@ namespace Player
             Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward + playerCapsuleTransform.up * upDirectionRayLength, Color.red);
             if (hasObjectGrabbed)
             {
-                grabbedObject.transform.position = playerCapsuleTransform.position + playerCapsuleTransform.forward;
+                grabbedObject.transform.position = playerCapsuleTransform.position + playerCapsuleTransform.forward * holdingLength;
                 grabbedObject.transform.rotation = playerCapsuleTransform.rotation;
             }
         }
@@ -70,7 +71,7 @@ namespace Player
                     currentRigidbody = grabbedObject.GetComponent<Rigidbody>();
                     currentCollider = grabbedObject.GetComponent<Collider>();
                     currentCollider.enabled = false;
-                    grabbedObject.transform.localPosition = new Vector3(0, 0, 1);
+                    grabbedObject.transform.localPosition = Vector3.forward * holdingLength;
                     grabbedObject.transform.localRotation = Quaternion.identity;
                     hasObjectGrabbed = true;
                 }
