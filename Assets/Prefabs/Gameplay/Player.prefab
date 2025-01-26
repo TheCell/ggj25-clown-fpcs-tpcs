@@ -393,6 +393,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: afb48873ba12ecd47983d196e6176f11, type: 2}
   - {fileID: 2100000, guid: 6e6a972a2340b4047b46ef3ad56d4ea2, type: 2}
   billboard: {fileID: 2592167519276825268}
+  kickAudioClip: {fileID: 8300000, guid: 76e01e54fcc2fbe4f8d580d3faff4712, type: 3}
+  pokeAudioClip: {fileID: 8300000, guid: cc21305dbbe48a840b33906f01c816f6, type: 3}
+  balloonPopAudioClip: {fileID: 8300000, guid: eb167f2ea3928364a942b1223c4053e0, type: 3}
 --- !u!136 &3488896431856158960
 CapsuleCollider:
   m_ObjectHideFlags: 0

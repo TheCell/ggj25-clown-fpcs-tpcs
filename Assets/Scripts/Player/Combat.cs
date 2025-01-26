@@ -12,6 +12,9 @@ public class Combat : InteractionHistory
     [SerializeField] GameObject interactionPosition;
     [SerializeField] private Material[] billboardMaterials;
     [SerializeField] private GameObject billboard;
+    [SerializeField] private AudioClip kickAudioClip;
+    [SerializeField] private AudioClip pokeAudioClip;
+    [SerializeField] private AudioClip balloonPopAudioClip;
     private ScoreManager scoreManager;
     private AudioSource audioSource;
     private Move moveScript;
@@ -75,6 +78,7 @@ public class Combat : InteractionHistory
             var adult = collider.gameObject.GetComponentInParent<Adult>();
             if (adult.HasInteractedWith(Interaction.EyePoke))
             {
+                audioSource.PlayOneShot(pokeAudioClip);
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
                 billboardAnimator.Play(nameof(Interaction.Strike));
                 scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
@@ -94,6 +98,7 @@ public class Combat : InteractionHistory
             var child = collider.gameObject.GetComponent<Child>();
             if (child.HasInteractedWith(Interaction.BubbleBurst))
             {
+                audioSource.PlayOneShot(balloonPopAudioClip);
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
                 billboardAnimator.Play(nameof(Interaction.Strike));
                 scoreManager.scoreEvent.Invoke(Interaction.Strike, 0);
@@ -125,7 +130,7 @@ public class Combat : InteractionHistory
         if (collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
             var adult = collider.gameObject.GetComponentInParent<Adult>();
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.PlayOneShot(kickAudioClip);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
             adult.KickHappened();
@@ -135,7 +140,7 @@ public class Combat : InteractionHistory
         else if (collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
             var child = collider.gameObject.GetComponent<Child>();
-            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.PlayOneShot(kickAudioClip);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
             child.KickHappened();
