@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageHolder: {fileID: 1012638180}
-  trueEnding: {fileID: 21300000, guid: 230f0fa63109cac4098d46d67fee82eb, type: 3}
+  trueEnding: {fileID: 21300000, guid: 92593e7db7e36054393ec961ad0cbabd, type: 3}
   regularEnding: {fileID: 21300000, guid: ab73e38b2a31d6a4889700a148b83304, type: 3}
   bountyPoster: {fileID: 2854178257688217522, guid: 7b8c607835fcd6143b03917c2af4f87a, type: 3}
   bountySlapOntoSurfaceCurve:
