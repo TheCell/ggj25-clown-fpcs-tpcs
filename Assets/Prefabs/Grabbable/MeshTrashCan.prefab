@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 103999504270480068}
   - component: {fileID: 8419835981413996167}
   m_Layer: 0
-  m_Name: "Gu\u0308dderchu\u0308bel"
+  m_Name: MeshTrashCan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
