@@ -70,26 +70,20 @@ namespace Player
             //Debug.Log("Collision ja lol ey" + other.gameObject.name);
             SetThrown(false);
 
-            if (other.gameObject.CompareTag(nameof(Tag.Child)))
+            //Debug.Log("Child hit ja lol ey");
+            int adultAmount = 0;
+            foreach (var adult in Physics.OverlapSphere(transform.position, adultsRadius))
             {
-                other.gameObject.GetComponent<Child>().StartShove(gameObject.GetComponent<Rigidbody>().linearVelocity, 1.5f);
-
-                //Debug.Log("Child hit ja lol ey");
-                int adultAmount = 0;
-                foreach (var adult in Physics.OverlapSphere(transform.position, adultsRadius))
+                if (adult.CompareTag(nameof(Tag.Adult)))
                 {
-                    if (adult.CompareTag(nameof(Tag.Adult)))
-                    {
-                        adult.GetComponentInParent<Adult>().WitnessHappened();
-                        adultAmount++;
-                    }
+                    adult.GetComponentInParent<Adult>().WitnessHappened();
+                    adultAmount++;
                 }
-                if (adultAmount == 0)
-                    adultAmount = 1;
-                Debug.Log(adultAmount);
-                scoreManager.scoreEvent.Invoke(Interaction.Throw, adultAmount);
             }
-
+            if (adultAmount == 0)
+                adultAmount = 1;
+            Debug.Log(adultAmount);
+            scoreManager.scoreEvent.Invoke(Interaction.Throw, adultAmount);
         }
     }
 }
