@@ -7,14 +7,13 @@ using Unity.VisualScripting;
 
 namespace Player
 {
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(BoxCollider))]
     public class GrabbableObject : MonoBehaviour
     {
         private bool isThrown;
         private float adultsRadius = 10f;
         private List<Collider> adultsColliderInRadius = new List<Collider>();
         private Rigidbody rb;
+        private GameObject meshCan;
 
         private ScoreManager scoreManager;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +21,7 @@ namespace Player
         {
             scoreManager = ScoreManager.instance;
             rb = GetComponent<Rigidbody>();
+            meshCan = gameObject.transform.GetChild(0).gameObject;
         }
         private void OnEnable()
         {
@@ -33,9 +33,9 @@ namespace Player
         {
             if (isThrown)
             {
-                transform.Rotate(Vector3.right, UnityEngine.Random.Range(37, 124));
-                transform.Rotate(Vector3.up, UnityEngine.Random.Range(37, 124));
-                transform.Rotate(Vector3.forward, UnityEngine.Random.Range(37, 124));
+                meshCan.transform.Rotate(Vector3.right, UnityEngine.Random.Range(37, 124));
+                meshCan.transform.Rotate(Vector3.up, UnityEngine.Random.Range(37, 124));
+                meshCan.transform.Rotate(Vector3.forward, UnityEngine.Random.Range(37, 124));
 
                 // If hits child then invoke scoreManager
             }
@@ -53,9 +53,13 @@ namespace Player
             {
                 rb.linearVelocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
-                transform.rotation = Quaternion.identity;
+                meshCan.transform.rotation = Quaternion.identity;
                 StartCoroutine(SetKinematicInASec(true));
             }
+        }
+        public void SetThrowDirection(Vector3 throwingDirection)
+        {
+            rb.AddForce(throwingDirection, ForceMode.Impulse);
         }
 
         private void OnCollisionEnter(Collision other)

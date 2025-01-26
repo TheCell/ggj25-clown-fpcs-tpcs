@@ -15,7 +15,6 @@ namespace Player
         private bool hasObjectGrabbed;
         private GameObject grabbedObject;
         private GrabbableObject currentgrabbable;
-        private Rigidbody currentRigidbody;
         private Collider currentCollider;
         private float holdingLength = 1.5f;
         void Start()
@@ -64,12 +63,11 @@ namespace Player
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2, layerMask))
             {
-                if (hit.collider.gameObject.TryGetComponent(out GrabbableObject grabbableObject))
+                currentgrabbable = hit.collider.GetComponentInParent<GrabbableObject>();
+                if (currentgrabbable != null)
                 {
-                    grabbedObject = hit.collider.gameObject;
-                    currentgrabbable = grabbableObject;
-                    currentRigidbody = grabbedObject.GetComponent<Rigidbody>();
-                    currentCollider = grabbedObject.GetComponent<Collider>();
+                    grabbedObject = currentgrabbable.gameObject;
+                    currentCollider = hit.collider;
                     currentCollider.enabled = false;
                     grabbedObject.transform.localPosition = Vector3.forward * holdingLength;
                     grabbedObject.transform.localRotation = Quaternion.identity;
@@ -81,12 +79,11 @@ namespace Player
         {
             hasObjectGrabbed = false;
             currentgrabbable.SetThrown(true);
-            currentRigidbody.AddForce(playerCapsuleTransform.forward * throwingDistanceOfObjects, ForceMode.Impulse);
+            currentgrabbable.SetThrowDirection(playerCapsuleTransform.forward * throwingDistanceOfObjects);
             currentCollider.enabled = true;
             
             grabbedObject = null;
             currentgrabbable = null;
-            currentRigidbody = null;
             currentCollider = null;
         }
     }
