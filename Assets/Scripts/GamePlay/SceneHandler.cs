@@ -51,11 +51,6 @@ public class SceneHandler : MonoBehaviour
     {
         int nextSceneIndex = (int)Instance.currentScene + sceneIndexIncrement;
 
-        if ((SceneType)nextSceneIndex == SceneType.GAMESCENE)
-        {
-            GameManager.Instance.isGamePaused = false;
-        }
-
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             Instance.SwitchScene((SceneType)nextSceneIndex);

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private AudioMixer audioMixer;
 
     private float timeUntilCopsArriveCounter = 0f;
-    public bool isGamePaused = false;
+    public bool isGamePaused = true;
     public bool isTrueEnding = false;
     public int score = 0;
 
@@ -51,6 +51,16 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         timeUntilCopsArriveCounter = 0f;
         SceneHandler.GoToNextScene();
+    }
+
+    public void AddScore(int scoreToAdd)
+    {
+        if (score == 0)
+        {
+            isGamePaused = false;
+        }
+
+        score += scoreToAdd;
     }
 
 }
