@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(RandomSoundPlayer))]
 public class Adult : InteractionHistory, IShovable
 {
     [SerializeField] private Transform[] points;
@@ -24,7 +23,8 @@ public class Adult : InteractionHistory, IShovable
     private float continueWalkAfterSeconds = 2f;
     private Emotion currentEmotion = Emotion.Happy;
     private Animator animator;
-    private RandomSoundPlayer randomSoundPlayer;
+    [SerializeField] private RandomSoundPlayer gaspRandomSoundPlayer;
+    [SerializeField] private RandomSoundPlayer heyRandomSoundPlayer;
 
     private int destPoint = 0;
     private NavMeshAgent agent;
@@ -34,6 +34,11 @@ public class Adult : InteractionHistory, IShovable
         this.animator = animator;
     }
 
+    public void Shove()
+    {
+        heyRandomSoundPlayer.PlayRandomAudioOneShot(audioSource);
+    }
+
     public void WitnessHappened()
     {
         agent.isStopped = true;
@@ -41,7 +46,7 @@ public class Adult : InteractionHistory, IShovable
 
         billboard.transform.position = agent.transform.position + billboardRelativeOffset;
         billboardAnimator.Play(nameof(Interaction.Witness));
-        randomSoundPlayer.PlayRandomAudioOneShot(audioSource);
+        gaspRandomSoundPlayer.PlayRandomAudioOneShot(audioSource);
 
         Invoke(nameof(WitnessEnded), 2f);
     }
@@ -103,7 +108,6 @@ public class Adult : InteractionHistory, IShovable
     {
         agent = GetComponentInChildren<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
-        randomSoundPlayer = GetComponent<RandomSoundPlayer>();
 
         billboardRelativeOffset = billboard.transform.position - transform.position;
         emotionBillboardRelatieveOffset = emotionBillboard.transform.position - transform.position;
