@@ -1596,7 +1596,7 @@ MonoBehaviour:
   comboCountdown: 5
   comboText: {fileID: 2342643409861688735}
   comboBackground: {fileID: 1319700057391369121}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 7290457719814359236}
   scoreBackground: {fileID: 3988452419112511971}
   strikeImages:
   - {fileID: 101250743444114141}
