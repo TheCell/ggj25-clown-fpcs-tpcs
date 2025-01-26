@@ -91,7 +91,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnScoreReceived(Interaction interaction, int witnesscount)
     {
-        if (score == 0)
+        if (GameManager.Instance.isGamePaused)
         {
             audioSource.PlayOneShot(audioSource.clip);
             StartCoroutine(ScaleUpDownAnimation(strikeBackground.rectTransform, 1.25f));
