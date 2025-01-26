@@ -24,6 +24,8 @@ namespace NPC
 
             rb = GetComponent<Rigidbody>();
             audioSource = GetComponent<AudioSource>();
+
+            balloon.GetComponentInChildren<MeshRenderer>().material.color = Random.ColorHSV(0f, 1f, 0.7f, 0.7f, 0.7f, 0.7f, 1f, 1f);
         }
 
         private void Update()
@@ -43,7 +45,7 @@ namespace NPC
             audioSource.PlayOneShot(audioSource.clip);
             
             //Hacky way of making it look like child is dragging the rope behind them
-            balloon.GetComponent<MeshRenderer>().enabled = false;
+            balloon.GetComponentInChildren<MeshRenderer>().enabled = false;
             Rigidbody balloonRB = balloon.GetComponent<Rigidbody>();
             balloonRB.useGravity = true;
             balloonRB.mass = 1f;
