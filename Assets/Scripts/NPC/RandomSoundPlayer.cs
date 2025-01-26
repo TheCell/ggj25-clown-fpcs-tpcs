@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GetRandomSound : MonoBehaviour
+public class RandomSoundPlayer : MonoBehaviour
 {
     [SerializeField] private AudioClip[] sounds;
 
