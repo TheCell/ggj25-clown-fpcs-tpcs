@@ -11,6 +11,7 @@ namespace Player
         [SerializeField] private Transform playerCapsuleTransform;
         [SerializeField] private float forwardDirectionRayLength;
         [SerializeField] private float upDirectionRayLength;
+        [SerializeField] private float throwingDistanceOfObjects;
         private bool hasObjectGrabbed;
         private GameObject grabbedObject;
         private GrabbableObject currentgrabbable;
@@ -32,7 +33,7 @@ namespace Player
         }
         void Update()
         {
-            Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward, Color.red);
+            Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward + playerCapsuleTransform.up * upDirectionRayLength, Color.red);
             if (hasObjectGrabbed)
             {
                 grabbedObject.transform.position = playerCapsuleTransform.position + playerCapsuleTransform.forward;
@@ -57,7 +58,7 @@ namespace Player
         private void Grab()
         {
             // Call the grabbed object and set it to the player
-            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward * forwardDirectionRayLength);
+            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward * forwardDirectionRayLength + playerCapsuleTransform.up * upDirectionRayLength);
             int layerMask = ~LayerMask.GetMask("Ignore Raycast");
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2, layerMask))
@@ -79,7 +80,7 @@ namespace Player
         {
             hasObjectGrabbed = false;
             currentgrabbable.SetThrown(true);
-            currentRigidbody.AddForce(playerCapsuleTransform.forward * 10, ForceMode.Impulse);
+            currentRigidbody.AddForce(playerCapsuleTransform.forward * throwingDistanceOfObjects, ForceMode.Impulse);
             currentCollider.enabled = true;
             
             grabbedObject = null;

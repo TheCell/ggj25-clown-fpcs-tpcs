@@ -354,6 +354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba962b47428eac54d81b8f39a8e24686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPlayerLookAt:
+    m_PersistentCalls:
+      m_Calls: []
   speedBase: 5
   runningMultiplier: 2
   jumpForce: 5
@@ -429,6 +432,7 @@ MonoBehaviour:
   playerCapsuleTransform: {fileID: 4929113400938513868}
   forwardDirectionRayLength: 2
   upDirectionRayLength: -0.25
+  throwingDistanceOfObjects: 15
 --- !u!114 &8230806173718451538
 MonoBehaviour:
   m_ObjectHideFlags: 0
