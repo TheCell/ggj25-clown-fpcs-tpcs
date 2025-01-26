@@ -22,13 +22,20 @@ public class Adult : InteractionHistory, IShovable
     private float playerLastSeenTimeStamp = 0f;
     private float continueWalkAfterSeconds = 2f;
     private Emotion currentEmotion = Emotion.Happy;
+    private Animator animator;
 
     private int destPoint = 0;
     private NavMeshAgent agent;
 
+    public void SetAnimator(Animator animator)
+    {
+        this.animator = animator;
+    }
+
     public void WitnessHappened()
     {
         agent.isStopped = true;
+        animator.Play("Idle");
 
         billboard.transform.position = agent.transform.position + billboardRelativeOffset;
         billboardAnimator.Play(nameof(Interaction.Witness));
@@ -40,6 +47,7 @@ public class Adult : InteractionHistory, IShovable
     private void WitnessEnded()
     {
         agent.isStopped = false;
+        animator.Play("Walk");
     }
 
     public void EyePokeHappened()
@@ -50,6 +58,8 @@ public class Adult : InteractionHistory, IShovable
         }
 
         agent.isStopped = true;
+        animator.Play("Idle");
+
         //billboard.transform.position = agent.transform.position + billboardRelatieOffset;
         //billboardAnimator.Play(nameof(Interaction.EyePoke));
         //StartCoroutine(PlayAudioRandomDelayed());
@@ -60,6 +70,7 @@ public class Adult : InteractionHistory, IShovable
     public void KickHappened()
     {
         agent.isStopped = true;
+        animator.Play("Idle");
         //billboard.transform.position = agent.transform.position + billboardRelatieOffset;
         //billboardAnimator.Play(nameof(Interaction.Kick));
         //StartCoroutine(PlayAudioRandomDelayed());
@@ -70,6 +81,7 @@ public class Adult : InteractionHistory, IShovable
     private void EyePokeEnded()
     {
         agent.isStopped = false;
+        animator.Play("Walk");
     }
 
     public void PlaySameEmotion()
@@ -89,6 +101,7 @@ public class Adult : InteractionHistory, IShovable
     {
         agent = GetComponentInChildren<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
+        
         billboardRelativeOffset = billboard.transform.position - transform.position;
         emotionBillboardRelatieveOffset = emotionBillboard.transform.position - transform.position;
 
@@ -148,6 +161,7 @@ public class Adult : InteractionHistory, IShovable
                 if (!agent.isStopped)
                 {
                     agent.isStopped = true;
+                    animator.Play("Idle");
                 }
             }
         }
@@ -157,6 +171,7 @@ public class Adult : InteractionHistory, IShovable
             if ((Time.time - playerLastSeenTimeStamp) > continueWalkAfterSeconds)
             {
                 agent.isStopped = false;
+                animator.Play("Walk");
             }
         }
     }

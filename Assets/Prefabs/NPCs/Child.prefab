@@ -800,6 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04584e16c85ff44db6b848598d0d115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  adult: {fileID: 0}
 --- !u!1001 &157275013565127424
 PrefabInstance:
   m_ObjectHideFlags: 0
