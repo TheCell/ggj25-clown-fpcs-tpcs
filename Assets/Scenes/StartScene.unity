@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c8327f3b792182144a61d83dada53073, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -919,10 +919,12 @@ MonoBehaviour:
   slideshowImage: {fileID: 267996007}
   slideText: {fileID: 1936293549}
   slides:
+  - {fileID: 21300000, guid: 4acd55612cb880d418cbde9f9b6c6ca5, type: 3}
   - {fileID: 21300000, guid: 88f10f9b43853b04e9d4791a256214d6, type: 3}
   - {fileID: 21300000, guid: 91b10f31fc6f5374c84e89bbedd2f6a9, type: 3}
   - {fileID: 21300000, guid: 108bc5ec3fdbcab4ea506227f8b5f1d8, type: 3}
   slideTexts:
+  - 
   - We are the Global Clown Association - Thanks to our first-class services, it's
     very easy to become happy.
   - 'But now...everyone is TOO happy! We can''t make money anymore! '
