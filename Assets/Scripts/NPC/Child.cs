@@ -1,4 +1,5 @@
 using System.Collections;
+using Player;
 using UnityEngine;
 
 namespace NPC
@@ -40,8 +41,19 @@ namespace NPC
             }
 
             audioSource.PlayOneShot(audioSource.clip);
-            Destroy(balloon);
+            
+            //Hacky way of making it look like child is dragging the rope behind them
+            balloon.GetComponent<MeshRenderer>().enabled = false;
+            Rigidbody balloonRB = balloon.GetComponent<Rigidbody>();
+            balloonRB.useGravity = true;
+            balloonRB.mass = 1f;
+            balloon.GetComponent<SpringJoint>().minDistance = 2f;
+
+
             AddHasBeenInteractedWith(Interaction.BubbleBurst);
+
+            gameObject.AddComponent<GrabbableObject>();
+            Debug.LogWarning("Note to future self(robin): Why not make picking up a kid a separate interaction?");
         }
 
         public void KickHappened()

@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 3760659994893010817}
   - component: {fileID: 3942481578885373203}
   m_Layer: 0
-  m_Name: Balloon
+  m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c69c6d3a6c5b34ea19fc8eed26d4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloon: {fileID: 1212970022410789918}
+  balloon: {fileID: 6935008154123706283}
   emotionBillboardAnimator: {fileID: 200202381092105322}
   emotionBillboardMaterials:
   - {fileID: 2100000, guid: 15436f1bd9b07b0458ed5dd83acd32c4, type: 2}
@@ -607,7 +607,7 @@ GameObject:
   - component: {fileID: 810895335439857886}
   - component: {fileID: 3060169571233073837}
   m_Layer: 0
-  m_Name: BubbleOderSoBitteHelfenSieMir
+  m_Name: Balloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
