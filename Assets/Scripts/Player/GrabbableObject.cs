@@ -47,19 +47,21 @@ namespace Player
             if (!isThrown) return;
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("Player hit ja lol ey");
+                //Debug.Log("Player hit ja lol ey");
                 Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), other.gameObject.GetComponent<Collider>());
                 return;
             }
-            
-            Debug.Log("Collision ja lol ey" + other.gameObject.name);
+
+            //Debug.Log("Collision ja lol ey" + other.gameObject.name);
             isThrown = false;
             gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
             transform.localRotation = Quaternion.identity;
 
             if (other.gameObject.CompareTag(nameof(Tag.Child)))
             {
-                Debug.Log("Child hit ja lol ey");
+                other.gameObject.GetComponent<Child>().StartShove(gameObject.GetComponent<Rigidbody>().linearVelocity, 1.5f);
+
+                //Debug.Log("Child hit ja lol ey");
                 int adultAmount = 0;
                 foreach (var adult in Physics.OverlapSphere(transform.position, adultsRadius))
                 {
