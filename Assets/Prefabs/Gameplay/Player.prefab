@@ -357,8 +357,8 @@ MonoBehaviour:
   OnPlayerLookAt:
     m_PersistentCalls:
       m_Calls: []
-  speedBase: 5
-  runningMultiplier: 2
+  speedBase: 4
+  runningMultiplier: 1.2
   jumpForce: 5
   gravity: 9.81
   groundDistance: 0.4
