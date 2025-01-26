@@ -2,8 +2,11 @@ using System.Collections;
 using NPC;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(RandomSoundPlayer))]
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance { get; private set; }
@@ -22,6 +25,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private Image[] policeSirenImages = new Image[2];
     [SerializeField] private Slider timeUntilPoliceArriveSlider;
     public ScoreEvent scoreEvent;
+    private AudioSource audioSource;
+    private RandomSoundPlayer randomSoundPlayer;
 
     //Anti-Cheat score variables
     private int antiCheatFloatMultiplier;
@@ -46,6 +51,9 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         int childrenInScene = Object.FindObjectsByType<Child>(FindObjectsSortMode.InstanceID).Length;
+        audioSource = GetComponent<AudioSource>();
+        randomSoundPlayer = GetComponent<RandomSoundPlayer>();
+
         GameManager.Instance.totalChildren = childrenInScene;
     }
 
@@ -85,6 +93,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (score == 0)
         {
+            audioSource.PlayOneShot(audioSource.clip);
             StartCoroutine(ScaleUpDownAnimation(strikeBackground.rectTransform, 1.25f));
             foreach (Image strikeImage in strikeImages)
             {
@@ -97,6 +106,13 @@ public class ScoreManager : MonoBehaviour
             }
 
             timeUntilPoliceArriveSlider.GetComponentInChildren<RepeatedLerpBetweenColorsAnimator>().StartAnimation();
+        }
+        else
+        {
+            if (interaction != Interaction.Strike)
+            {
+                randomSoundPlayer.PlayRandomAudioOneShot(audioSource);
+            }
         }
 
         int calculatedScore = ((int)interaction + witnesscount * (int)Interaction.Witness) * combo;
