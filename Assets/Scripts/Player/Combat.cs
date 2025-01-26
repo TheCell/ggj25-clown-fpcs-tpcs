@@ -1,4 +1,5 @@
 using NPC;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class Combat : InteractionHistory
     [SerializeField] private GameObject billboard;
     private ScoreManager scoreManager;
     private AudioSource audioSource;
+    private Move moveScript;
 
     private float notifyAdultsRadius = 10f;
     private float closeRangeCheck = 1f;
@@ -22,6 +24,7 @@ public class Combat : InteractionHistory
     {
         scoreManager = ScoreManager.instance;
         audioSource = GetComponent<AudioSource>();
+        moveScript = GetComponent<Move>();
     }
 
     private void Update()
@@ -56,17 +59,20 @@ public class Combat : InteractionHistory
 
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
-        var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
-        Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
-        
-        if (hit.collider == null)
+        moveScript.FreezePlayer(1f);
+        //var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
+        //Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
+
+        var collider = NullableHitScanObject();
+        if (collider == null)
         {
             return;
         }
 
-        if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
+        moveScript.OnPlayerLookAt.Invoke(collider.gameObject.transform.position);
+        if (collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
-            var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
+            var adult = collider.gameObject.GetComponentInParent<Adult>();
             if (adult.HasInteractedWith(Interaction.EyePoke))
             {
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
@@ -77,15 +83,15 @@ public class Combat : InteractionHistory
                 return;
             }
 
-            NotifyAdults(Interaction.EyePoke, hit.collider.gameObject);
+            NotifyAdults(Interaction.EyePoke, collider.gameObject);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.EyePoke);
             billboardAnimator.Play(nameof(Interaction.EyePoke));
             adult.SetEmotion(Emotion.Sad);
             adult.EyePokeHappened();
         }
-        else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        else if (collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            var child = hit.collider.gameObject.GetComponent<Child>();
+            var child = collider.gameObject.GetComponent<Child>();
             if (child.HasInteractedWith(Interaction.BubbleBurst))
             {
                 billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Strike);
@@ -106,27 +112,29 @@ public class Combat : InteractionHistory
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
     {
-        var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
-        Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
-
-        if (hit.collider == null)
+        moveScript.FreezePlayer(1f);
+        //var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
+        //Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
+        var collider = NullableHitScanObject();
+        if (collider == null)
         {
             return;
         }
 
-        if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
+        moveScript.OnPlayerLookAt.Invoke(collider.gameObject.transform.position);
+        if (collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
-            var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
+            var adult = collider.gameObject.GetComponentInParent<Adult>();
             audioSource.PlayOneShot(audioSource.clip);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
             adult.KickHappened();
             adult.PlaySameEmotion();
-            NotifyAdults(Interaction.Kick, hit.collider.gameObject);
+            NotifyAdults(Interaction.Kick, collider.gameObject);
         }
-        else if (hit.collider.gameObject.CompareTag(nameof(Tag.Child)))
+        else if (collider.gameObject.CompareTag(nameof(Tag.Child)))
         {
-            var child = hit.collider.gameObject.GetComponent<Child>();
+            var child = collider.gameObject.GetComponent<Child>();
             audioSource.PlayOneShot(audioSource.clip);
             billboard.GetComponent<MeshRenderer>().material = GetBillboardMaterial(Interaction.Kick);
             billboardAnimator.Play(nameof(Interaction.Kick));
@@ -156,6 +164,37 @@ public class Combat : InteractionHistory
         }
 
         scoreManager.scoreEvent.Invoke(interaction, witnessCount);
+    }
+
+    private Collider NullableHitScanObject()
+    {
+        var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
+        Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
+        Debug.DrawRay(interactionPosition.transform.position, interactionPosition.transform.forward, Color.cyan, 0.5f);
+        if (hit.collider != null)
+        {
+            return hit.collider;
+        }
+
+        // check 45 degrees to the right
+        ray = new Ray(interactionPosition.transform.position, Quaternion.Euler(0, 45, 0) * interactionPosition.transform.forward);
+        Physics.Raycast(ray, out hit, closeRangeCheck);
+        //Debug.DrawRay(interactionPosition.transform.position, Quaternion.Euler(0, 45, 0) * interactionPosition.transform.forward, Color.cyan, 0.5f);
+        if (hit.collider != null)
+        {
+            return hit.collider;
+        }
+
+        // check 45 degrees to the left
+        ray = new Ray(interactionPosition.transform.position, Quaternion.Euler(0, -45, 0) * interactionPosition.transform.forward);
+        Physics.Raycast(ray, out hit, closeRangeCheck);
+        //Debug.DrawRay(interactionPosition.transform.position, Quaternion.Euler(0, -45, 0) * interactionPosition.transform.forward, Color.cyan, 0.5f);
+        if (hit.collider != null)
+        {
+            return hit.collider;
+        }
+
+        return null;
     }
 
     private Material GetBillboardMaterial(Interaction interaction)

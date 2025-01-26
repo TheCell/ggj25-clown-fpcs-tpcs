@@ -32,7 +32,7 @@ namespace Player
         }
         void Update()
         {
-            Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward + playerCapsuleTransform.up * upDirectionRayLength, Color.red);
+            Debug.DrawRay(playerCapsuleTransform.position, forwardDirectionRayLength * playerCapsuleTransform.forward, Color.red);
             if (hasObjectGrabbed)
             {
                 grabbedObject.transform.position = playerCapsuleTransform.position + playerCapsuleTransform.forward;
@@ -57,7 +57,7 @@ namespace Player
         private void Grab()
         {
             // Call the grabbed object and set it to the player
-            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward * forwardDirectionRayLength + playerCapsuleTransform.up * upDirectionRayLength);
+            Ray ray = new Ray(playerCapsuleTransform.position, playerCapsuleTransform.forward * forwardDirectionRayLength);
             int layerMask = ~LayerMask.GetMask("Ignore Raycast");
 
             if (Physics.Raycast(ray, out RaycastHit hit, 2, layerMask))
@@ -78,8 +78,8 @@ namespace Player
         private void Throw()
         {
             hasObjectGrabbed = false;
-            currentRigidbody.AddForce(playerCapsuleTransform.forward * 10, ForceMode.Impulse);
             currentgrabbable.SetThrown(true);
+            currentRigidbody.AddForce(playerCapsuleTransform.forward * 10, ForceMode.Impulse);
             currentCollider.enabled = true;
             
             grabbedObject = null;

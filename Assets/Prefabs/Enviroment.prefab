@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3597626201189758710}
   - component: {fileID: 8505478437576491892}
   - component: {fileID: 8026560871574479754}
+  - component: {fileID: 8085721331087808202}
   m_Layer: 0
   m_Name: TPCS_House_003_V1 (1)
   m_TagString: Untagged
@@ -97,6 +98,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8085721331087808202
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148370551064538202}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &263497967119137020
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,6 +125,7 @@ GameObject:
   - component: {fileID: 4020782957398920862}
   - component: {fileID: 3769374777505933198}
   - component: {fileID: 5518693486415147150}
+  - component: {fileID: 6140621634932415151}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (1)
   m_TagString: Untagged
@@ -191,6 +209,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &6140621634932415151
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263497967119137020}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &499546852609196782
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +236,7 @@ GameObject:
   - component: {fileID: 373424825580954180}
   - component: {fileID: 897550678942692868}
   - component: {fileID: 4200685482821243583}
+  - component: {fileID: 5847683047706062402}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (3)
   m_TagString: Untagged
@@ -284,6 +319,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5847683047706062402
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499546852609196782}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &542833611490918353
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +346,7 @@ GameObject:
   - component: {fileID: 1548159012196739730}
   - component: {fileID: 740693912215748574}
   - component: {fileID: 2320101865143065652}
+  - component: {fileID: 5782967260787915681}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (2)
   m_TagString: Untagged
@@ -377,6 +429,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5782967260787915681
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542833611490918353}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &692792453711593813
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +456,7 @@ GameObject:
   - component: {fileID: 6476406063460621383}
   - component: {fileID: 3632039457598910484}
   - component: {fileID: 8022353262368490944}
+  - component: {fileID: 4512044899741763533}
   m_Layer: 0
   m_Name: TPCS_House_001_V1 (3)
   m_TagString: Untagged
@@ -474,6 +543,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4512044899741763533
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692792453711593813}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &1092325938771402976
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +570,7 @@ GameObject:
   - component: {fileID: 316210799558949466}
   - component: {fileID: 3732555685520831999}
   - component: {fileID: 1452486571407540533}
+  - component: {fileID: 5474431503884617753}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1
   m_TagString: Untagged
@@ -567,6 +653,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5474431503884617753
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092325938771402976}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &1112139096611189140
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +680,7 @@ GameObject:
   - component: {fileID: 2648682307302766369}
   - component: {fileID: 493362397744520930}
   - component: {fileID: 3132862350289505860}
+  - component: {fileID: 3164480872847142777}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (6)
   m_TagString: Untagged
@@ -660,6 +763,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3164480872847142777
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112139096611189140}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &1910280606246944321
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +790,7 @@ GameObject:
   - component: {fileID: 5399424202030968030}
   - component: {fileID: 6831400887066294215}
   - component: {fileID: 3013732455460450635}
+  - component: {fileID: 1493996180554197826}
   m_Layer: 0
   m_Name: TPCS_House_003_V1 (5)
   m_TagString: Untagged
@@ -757,6 +877,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1493996180554197826
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910280606246944321}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &2019744125926276255
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +904,7 @@ GameObject:
   - component: {fileID: 6910666711498690860}
   - component: {fileID: 2543584865217204359}
   - component: {fileID: 4045996774646301944}
+  - component: {fileID: 3855735197209746753}
   m_Layer: 0
   m_Name: TPCS_House_003_V1 (2)
   m_TagString: Untagged
@@ -854,6 +991,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3855735197209746753
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019744125926276255}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &2228168577583311235
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +1018,7 @@ GameObject:
   - component: {fileID: 6581873712345435025}
   - component: {fileID: 1916928860253452293}
   - component: {fileID: 4085641181289628101}
+  - component: {fileID: 3538218165608477767}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (4)
   m_TagString: Untagged
@@ -948,6 +1102,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3538218165608477767
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2228168577583311235}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &3111345982296667419
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +1129,7 @@ GameObject:
   - component: {fileID: 388623748642354393}
   - component: {fileID: 5707623777911791621}
   - component: {fileID: 5952633060988406733}
+  - component: {fileID: 4158855399847105731}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (2)
   m_TagString: Untagged
@@ -1042,6 +1213,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &4158855399847105731
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3111345982296667419}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &3392282609767579857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1240,7 @@ GameObject:
   - component: {fileID: 2618877972121049707}
   - component: {fileID: 1438834344865158606}
   - component: {fileID: 3752399536329400580}
+  - component: {fileID: 2857013011628786088}
   m_Layer: 0
   m_Name: TPCS_House_001_V1
   m_TagString: Untagged
@@ -1139,6 +1327,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2857013011628786088
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3392282609767579857}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &3624919698661393118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1354,7 @@ GameObject:
   - component: {fileID: 179045069230151401}
   - component: {fileID: 8528684310064153750}
   - component: {fileID: 867146948993019448}
+  - component: {fileID: 7800613014824388799}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (5)
   m_TagString: Untagged
@@ -1231,6 +1436,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7800613014824388799
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3624919698661393118}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &4199029878432433331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1551,7 @@ GameObject:
   - component: {fileID: 3611133458023216440}
   - component: {fileID: 6284620832113024599}
   - component: {fileID: 3336589538972531653}
+  - component: {fileID: 8023897736522315709}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (4)
   m_TagString: Untagged
@@ -1411,6 +1633,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8023897736522315709
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4338709786852698834}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &4361606054786657293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1660,7 @@ GameObject:
   - component: {fileID: 6785961104155023403}
   - component: {fileID: 3498317156120405747}
   - component: {fileID: 1206219049121553833}
+  - component: {fileID: 7237869673314723742}
   m_Layer: 0
   m_Name: TPCS_House_003_V1 (4)
   m_TagString: Untagged
@@ -1508,6 +1747,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7237869673314723742
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361606054786657293}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &4477418657960461655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1774,7 @@ GameObject:
   - component: {fileID: 3848655874943934445}
   - component: {fileID: 200119593829650504}
   - component: {fileID: 2675702211964511362}
+  - component: {fileID: 2979467617347379383}
   m_Layer: 0
   m_Name: TPCS_Store_004_V1
   m_TagString: Untagged
@@ -1598,6 +1854,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2979467617347379383
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4477418657960461655}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.028, y: 0.049000002, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!1 &4582497250599397927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1881,7 @@ GameObject:
   - component: {fileID: 2081737072451857568}
   - component: {fileID: 163062232679804161}
   - component: {fileID: 1571327814275985511}
+  - component: {fileID: 671723804554350808}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (6)
   m_TagString: Untagged
@@ -1692,6 +1965,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &671723804554350808
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4582497250599397927}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &4760573524259280159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1992,7 @@ GameObject:
   - component: {fileID: 5402600404953048624}
   - component: {fileID: 8461665131466300997}
   - component: {fileID: 8395895475445933301}
+  - component: {fileID: 296279792877934453}
   m_Layer: 0
   m_Name: TPCS_House_003_V1 (3)
   m_TagString: Untagged
@@ -1789,6 +2079,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &296279792877934453
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760573524259280159}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &4842196561565416443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,6 +2106,7 @@ GameObject:
   - component: {fileID: 4253178600832277301}
   - component: {fileID: 6953610287871031039}
   - component: {fileID: 187182586133876167}
+  - component: {fileID: 8588541446504751194}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (5)
   m_TagString: Untagged
@@ -1883,6 +2190,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8588541446504751194
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4842196561565416443}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &5455379766943355746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1894,6 +2217,7 @@ GameObject:
   - component: {fileID: 4683381126238259672}
   - component: {fileID: 8597773866690692733}
   - component: {fileID: 5815724431534502583}
+  - component: {fileID: 8399168721610975927}
   m_Layer: 0
   m_Name: TPCS_House_002_V1
   m_TagString: Untagged
@@ -1988,6 +2312,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8399168721610975927
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455379766943355746}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &5539729434997822582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2339,7 @@ GameObject:
   - component: {fileID: 6293188136637861137}
   - component: {fileID: 4157233266150389573}
   - component: {fileID: 6184295984747675584}
+  - component: {fileID: 2157449182102418291}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (4)
   m_TagString: Untagged
@@ -2081,6 +2422,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2157449182102418291
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5539729434997822582}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &5742123501920671874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2449,7 @@ GameObject:
   - component: {fileID: 6870298041614381633}
   - component: {fileID: 5797496555313904034}
   - component: {fileID: 1176150491265421394}
+  - component: {fileID: 2718380041019438560}
   m_Layer: 0
   m_Name: TPCS_House_001_V1 (2)
   m_TagString: Untagged
@@ -2178,6 +2536,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2718380041019438560
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742123501920671874}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &5892761559127252093
 GameObject:
   m_ObjectHideFlags: 0
@@ -2189,6 +2563,7 @@ GameObject:
   - component: {fileID: 4378502965650304492}
   - component: {fileID: 5792541645642967850}
   - component: {fileID: 2260419548936911440}
+  - component: {fileID: 378321201595852418}
   m_Layer: 0
   m_Name: TPCS_House_002_V1 (2)
   m_TagString: Untagged
@@ -2283,6 +2658,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &378321201595852418
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5892761559127252093}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &6024819015681398896
 GameObject:
   m_ObjectHideFlags: 0
@@ -2294,6 +2685,7 @@ GameObject:
   - component: {fileID: 8369585227314318716}
   - component: {fileID: 2875223820865335936}
   - component: {fileID: 2154762979229104622}
+  - component: {fileID: 1866594529716564363}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (3)
   m_TagString: Untagged
@@ -2375,6 +2767,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1866594529716564363
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024819015681398896}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &6025314648307304709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,6 +2874,7 @@ GameObject:
   - component: {fileID: 4276776485839834769}
   - component: {fileID: 1140613011553528281}
   - component: {fileID: 5272143340631141213}
+  - component: {fileID: 7683353983864650316}
   m_Layer: 0
   m_Name: TPCS_House_002_V1 (1)
   m_TagString: Untagged
@@ -2560,6 +2969,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7683353983864650316
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6432277614919035805}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &6529555589608409724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,6 +2996,7 @@ GameObject:
   - component: {fileID: 5592643690050460659}
   - component: {fileID: 2576676122734418470}
   - component: {fileID: 78322668626532319}
+  - component: {fileID: 8922074877454159781}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (1)
   m_TagString: Untagged
@@ -2652,6 +3078,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8922074877454159781
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6529555589608409724}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &6619637227523941439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,6 +3105,7 @@ GameObject:
   - component: {fileID: 5806965456509369989}
   - component: {fileID: 7438160727019057440}
   - component: {fileID: 4673980551683343850}
+  - component: {fileID: 533525924121328250}
   m_Layer: 0
   m_Name: TPCS_House_003_V1
   m_TagString: Untagged
@@ -2749,6 +3192,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &533525924121328250
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619637227523941439}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &6994214149690712236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +3219,7 @@ GameObject:
   - component: {fileID: 6864034814384349995}
   - component: {fileID: 521409256556215487}
   - component: {fileID: 2281448881907007246}
+  - component: {fileID: 7723190476095827094}
   m_Layer: 0
   m_Name: TPCS_House_001_V1 (1)
   m_TagString: Untagged
@@ -2846,6 +3306,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7723190476095827094
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6994214149690712236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
 --- !u!1 &7031276092733153934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +3333,7 @@ GameObject:
   - component: {fileID: 5261768330016489940}
   - component: {fileID: 5241972691828157416}
   - component: {fileID: 4549919868030267410}
+  - component: {fileID: 1582376332281668421}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (5)
   m_TagString: Untagged
@@ -2939,6 +3416,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &1582376332281668421
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7031276092733153934}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &7186170176191385397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,6 +3443,7 @@ GameObject:
   - component: {fileID: 5565283496039100303}
   - component: {fileID: 5725860990680705927}
   - component: {fileID: 9060354659246882272}
+  - component: {fileID: 86185488478631354}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (6)
   m_TagString: Untagged
@@ -3031,6 +3525,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &86185488478631354
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7186170176191385397}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &7227985674920989325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,6 +3552,7 @@ GameObject:
   - component: {fileID: 7327935378667870699}
   - component: {fileID: 5578947326598502226}
   - component: {fileID: 229743893032545302}
+  - component: {fileID: 2459326341452271502}
   m_Layer: 0
   m_Name: TPCS_Store_004_V1 (1)
   m_TagString: Untagged
@@ -3121,6 +3632,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &2459326341452271502
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7227985674920989325}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.028, y: 0.049000002, z: 0.014}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.014}
+  m_TimeToStationary: 0.5
 --- !u!1 &7336284297910280775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,6 +3659,7 @@ GameObject:
   - component: {fileID: 3321585191232420239}
   - component: {fileID: 2193645270342273171}
   - component: {fileID: 6243399462902636193}
+  - component: {fileID: 3249092182488501581}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (2)
   m_TagString: Untagged
@@ -3213,6 +3741,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3249092182488501581
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7336284297910280775}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &7602884528715283984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,6 +3768,7 @@ GameObject:
   - component: {fileID: 1649873518669138416}
   - component: {fileID: 3719186172214583235}
   - component: {fileID: 7098666670177244304}
+  - component: {fileID: 3992396767812059507}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1 (3)
   m_TagString: Untagged
@@ -3307,6 +3852,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &3992396767812059507
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602884528715283984}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &8061413599674118073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,6 +3879,7 @@ GameObject:
   - component: {fileID: 7247475260266935555}
   - component: {fileID: 5997650992264084134}
   - component: {fileID: 8421476788164333164}
+  - component: {fileID: 5478877067717184293}
   m_Layer: 0
   m_Name: TPCS_Store_002_V1
   m_TagString: Untagged
@@ -3401,6 +3963,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &5478877067717184293
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8061413599674118073}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &8137290842317099601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3412,6 +3990,7 @@ GameObject:
   - component: {fileID: 8909991727828945131}
   - component: {fileID: 5479048761343133518}
   - component: {fileID: 7777024518538015620}
+  - component: {fileID: 7727840304255834461}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1
   m_TagString: Untagged
@@ -3493,6 +4072,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &7727840304255834461
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137290842317099601}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1 &8522640841219604916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3504,6 +4099,7 @@ GameObject:
   - component: {fileID: 1939400339724940238}
   - component: {fileID: 2635446550196909483}
   - component: {fileID: 5958425396201799695}
+  - component: {fileID: 9122442401001434848}
   m_Layer: 0
   m_Name: TPCS_House_002_V1 (3)
   m_TagString: Untagged
@@ -3598,6 +4194,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &9122442401001434848
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8522640841219604916}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &8704871366650064662
 GameObject:
   m_ObjectHideFlags: 0
@@ -3609,6 +4221,7 @@ GameObject:
   - component: {fileID: 30619286735755445}
   - component: {fileID: 3071581944718193692}
   - component: {fileID: 6855665337333801132}
+  - component: {fileID: 8264603724948632086}
   m_Layer: 0
   m_Name: TPCS_Store_001_V1 (1)
   m_TagString: Untagged
@@ -3691,6 +4304,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &8264603724948632086
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8704871366650064662}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.032, y: 0.042000003, z: 0.015000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.001, y: 0, z: 0.015000001}
+  m_TimeToStationary: 0.5
 --- !u!1 &8918832158711952772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3702,6 +4331,7 @@ GameObject:
   - component: {fileID: 4693252016179157212}
   - component: {fileID: 776867353530867572}
   - component: {fileID: 4295978045934892690}
+  - component: {fileID: 6110298049260707778}
   m_Layer: 0
   m_Name: TPCS_Store_003_V1 (7)
   m_TagString: Untagged
@@ -3783,6 +4413,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!208 &6110298049260707778
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918832158711952772}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.034, y: 0.042000003, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.002, y: -0.001, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1001 &245478948260196253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3838,13 +4484,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6bf06daea08093b4b93c889ca59d9bc0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7615566660448139421}
   m_SourcePrefab: {fileID: 100100000, guid: 6bf06daea08093b4b93c889ca59d9bc0, type: 3}
 --- !u!4 &352024800876546166 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6bf06daea08093b4b93c889ca59d9bc0, type: 3}
   m_PrefabInstance: {fileID: 245478948260196253}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1128560846900794060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6bf06daea08093b4b93c889ca59d9bc0, type: 3}
+  m_PrefabInstance: {fileID: 245478948260196253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &7615566660448139421
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128560846900794060}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.054, y: 0.012, z: 0.11800001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.947, y: 0, z: 0.11800001}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1073665986925090164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3904,8 +4574,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ec7a66c6abdbaaa47910fe8ed39ed251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1507330487019288557}
   m_SourcePrefab: {fileID: 100100000, guid: ec7a66c6abdbaaa47910fe8ed39ed251, type: 3}
+--- !u!1 &155097484582709285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ec7a66c6abdbaaa47910fe8ed39ed251, type: 3}
+  m_PrefabInstance: {fileID: 1073665986925090164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &1507330487019288557
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155097484582709285}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.014, y: 0.010000001, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.003, y: 0, z: 0.010000001}
+  m_TimeToStationary: 0.5
 --- !u!4 &679151821292024479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ec7a66c6abdbaaa47910fe8ed39ed251, type: 3}
@@ -3970,13 +4664,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc2eba358c9ebb040b4bb811079f5742, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2226533655212523161}
   m_SourcePrefab: {fileID: 100100000, guid: dc2eba358c9ebb040b4bb811079f5742, type: 3}
 --- !u!4 &1373941888270829064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc2eba358c9ebb040b4bb811079f5742, type: 3}
   m_PrefabInstance: {fileID: 1484923040550937059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1754970584004549810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc2eba358c9ebb040b4bb811079f5742, type: 3}
+  m_PrefabInstance: {fileID: 1484923040550937059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2226533655212523161
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754970584004549810}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.017, y: 0.017, z: 0.016}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.004, y: 0.006, z: 0.016}
+  m_TimeToStationary: 0.5
 --- !u!1001 &3426541983221041527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4036,8 +4754,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6246668212317777630}
   m_SourcePrefab: {fileID: 100100000, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+--- !u!1 &2543667471237739558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+  m_PrefabInstance: {fileID: 3426541983221041527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &6246668212317777630
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543667471237739558}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!4 &2884340856106987164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
@@ -4098,8 +4840,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ce3e2311df6fac4ba9a0ce4418c63f9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5804213905584781847}
   m_SourcePrefab: {fileID: 100100000, guid: 9ce3e2311df6fac4ba9a0ce4418c63f9, type: 3}
+--- !u!1 &4005173838266429171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ce3e2311df6fac4ba9a0ce4418c63f9, type: 3}
+  m_PrefabInstance: {fileID: 4275136174936544162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &5804213905584781847
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4005173838266429171}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.027, y: 0.033, z: 0.017}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.119, y: -0.60800004, z: 0.017}
+  m_TimeToStationary: 0.5
 --- !u!4 &4386203457405498441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ce3e2311df6fac4ba9a0ce4418c63f9, type: 3}
@@ -4164,8 +4930,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6639249717390923719}
   m_SourcePrefab: {fileID: 100100000, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+--- !u!1 &4948604722939784266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
+  m_PrefabInstance: {fileID: 5218985972467257627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &6639249717390923719
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948604722939784266}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.011000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.011000001}
+  m_TimeToStationary: 0.5
 --- !u!4 &5757616185169753840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c68ecef18f4db8342aa4d1048298cf3f, type: 3}
@@ -4230,8 +5020,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3146c45e585222b448afbe95050a73dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2340141925139605192}
   m_SourcePrefab: {fileID: 100100000, guid: 3146c45e585222b448afbe95050a73dd, type: 3}
+--- !u!1 &4931410499027340902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3146c45e585222b448afbe95050a73dd, type: 3}
+  m_PrefabInstance: {fileID: 5237275602270368567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &2340141925139605192
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931410499027340902}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.007}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -0.0050000004}
+  m_TimeToStationary: 0.5
 --- !u!4 &5702739189260899548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3146c45e585222b448afbe95050a73dd, type: 3}
@@ -4296,13 +5110,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0a746099413443b44b4cb738f6c7340c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7000556937838691387}
   m_SourcePrefab: {fileID: 100100000, guid: 0a746099413443b44b4cb738f6c7340c, type: 3}
 --- !u!4 &6283012462710376464 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a746099413443b44b4cb738f6c7340c, type: 3}
   m_PrefabInstance: {fileID: 5817252099935252475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6663759713999786666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0a746099413443b44b4cb738f6c7340c, type: 3}
+  m_PrefabInstance: {fileID: 5817252099935252475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &7000556937838691387
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6663759713999786666}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.013, y: 0.021000002, z: 0.010000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.002, y: -0.009000001, z: 0.010000001}
+  m_TimeToStationary: 0.5
 --- !u!1001 &6319918377173588944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4362,13 +5200,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c66c06a79f4f6f74c8cdd7d821b80d1b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9158810089641585490}
   m_SourcePrefab: {fileID: 100100000, guid: c66c06a79f4f6f74c8cdd7d821b80d1b, type: 3}
 --- !u!4 &5782170275237362747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c66c06a79f4f6f74c8cdd7d821b80d1b, type: 3}
   m_PrefabInstance: {fileID: 6319918377173588944}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6590373287671899777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c66c06a79f4f6f74c8cdd7d821b80d1b, type: 3}
+  m_PrefabInstance: {fileID: 6319918377173588944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &9158810089641585490
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6590373287671899777}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.012, y: 0.012, z: 0.013}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.002}
+  m_TimeToStationary: 0.5
 --- !u!1001 &8082007988596838523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4428,10 +5290,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 296ccc58c2cd468489d989cb4ebe9aee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7667416501733853517}
   m_SourcePrefab: {fileID: 100100000, guid: 296ccc58c2cd468489d989cb4ebe9aee, type: 3}
 --- !u!4 &8620934289381554064 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 296ccc58c2cd468489d989cb4ebe9aee, type: 3}
   m_PrefabInstance: {fileID: 8082007988596838523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9000556709393083690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 296ccc58c2cd468489d989cb4ebe9aee, type: 3}
+  m_PrefabInstance: {fileID: 8082007988596838523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!208 &7667416501733853517
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000556709393083690}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.010000001, y: 0.010000001, z: 0.008}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.008}
+  m_TimeToStationary: 0.5
