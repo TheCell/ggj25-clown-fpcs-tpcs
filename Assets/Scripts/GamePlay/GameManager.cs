@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -6,8 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     public float timeUntilCopsArrive = 60f;
-    private AudioSource audioSource;
+    [SerializeField] private AudioClip introAudioClip;
+    [SerializeField] private AudioClip gameAudioClip;
+    [SerializeField] private AudioSource backgroundAudioSource;
+    [SerializeField] private AudioSource soundEffectsAudioSource;
     private AudioMixer audioMixer;
+    [SerializeField] private AudioClip mumblingAudioClip;
+    [SerializeField] private RandomSoundPlayer policeScannerRandomSoundPlayer;
+    [SerializeField] private RandomSoundPlayer sirenRandomSoundPlayer;
 
     public float timeUntilCopsArriveCounter = 0f;
     public bool isGamePaused = true;
@@ -31,14 +38,34 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        backgroundAudioSource.clip = introAudioClip;
+        backgroundAudioSource.Play();
     }
 
+    private bool playedCopArriving = false;
     private void Update()
     {
+        if (SceneHandler.Instance.currentScene == SceneType.GAMESCENE && backgroundAudioSource.clip != gameAudioClip)
+        {
+            backgroundAudioSource.clip = gameAudioClip;
+            backgroundAudioSource.Play();
+        }
+
+        if (SceneHandler.Instance.currentScene == SceneType.STARTSCENE && backgroundAudioSource.clip != introAudioClip)
+        {
+            backgroundAudioSource.clip = introAudioClip;
+            backgroundAudioSource.Play();
+        }
+
         if (SceneHandler.Instance.currentScene == SceneType.GAMESCENE && !isGamePaused)
         {
             timeUntilCopsArriveCounter += Time.deltaTime;
+            if (timeUntilCopsArriveCounter >= (timeUntilCopsArrive - 3f))
+            {
+                playedCopArriving = true;
+                sirenRandomSoundPlayer.PlayRandomAudioOneShot(soundEffectsAudioSource);
+            }
+
             if (timeUntilCopsArriveCounter >= timeUntilCopsArrive)
             {
                 EndGame();
@@ -49,6 +76,8 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         isGamePaused = true;
+        playedCopArriving = false;
+        sirenRandomSoundPlayer.PlayRandomAudioOneShot(soundEffectsAudioSource);
         isTrueEnding = totalChildren == balloonsPopped;
         timeUntilCopsArriveCounter = 0f;
         SceneHandler.GoToNextScene();
@@ -56,7 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int scoreToAdd)
     {
-        if (score == 0)
+        if (isGamePaused)
         {
             isGamePaused = false;
             balloonsPopped = 0;
