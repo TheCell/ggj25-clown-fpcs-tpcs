@@ -1,10 +1,14 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
+    /// <summary>
+    /// Inform the player to look at a position. Position is in world space.
+    /// </summary>
+    public PositionEvent OnPlayerLookAt;
+
     [SerializeField] private float speedBase = 5f;
     [SerializeField] private float runningMultiplier = 2f;
     [SerializeField] private float jumpForce = 5f;
@@ -29,6 +33,7 @@ public class Move : MonoBehaviour
         move.action.Enable();
         sprint.action.Enable();
         sprint.action.performed += OnChangeRunning;
+        OnPlayerLookAt.AddListener(TurnClownToLookAt);
     }
 
     private void OnDisable()
@@ -36,6 +41,15 @@ public class Move : MonoBehaviour
         sprint.action.performed -= OnChangeRunning;
         move.action.Disable();
         sprint.action.Disable();
+    }
+
+    /// <summary>
+    ///  Manually turn the clown to look at a position
+    /// </summary>
+    /// <param name="position">Position in world space</param>
+    private void TurnClownToLookAt(Vector3 position)
+    {
+        RotatePlayer(position - transform.position);
     }
 
     private void OnChangeRunning(InputAction.CallbackContext context)
@@ -90,8 +104,13 @@ public class Move : MonoBehaviour
         //Rotate towards direction
         if (moveDirection != Vector3.zero)
         {
-            playerModel.rotation = Quaternion.LookRotation(moveDirection);
+            RotatePlayer(moveDirection);
         }
+    }
+
+    private void RotatePlayer(Vector3 direction)
+    {
+        playerModel.rotation = Quaternion.LookRotation(direction);
     }
 
     public void FreezePlayer(float duration)

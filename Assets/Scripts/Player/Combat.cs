@@ -1,4 +1,5 @@
 using NPC;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class Combat : InteractionHistory
     [SerializeField] private GameObject billboard;
     private ScoreManager scoreManager;
     private AudioSource audioSource;
+    private Move moveScript;
 
     private float notifyAdultsRadius = 10f;
     private float closeRangeCheck = 1f;
@@ -22,6 +24,7 @@ public class Combat : InteractionHistory
     {
         scoreManager = ScoreManager.instance;
         audioSource = GetComponent<AudioSource>();
+        moveScript = GetComponent<Move>();
     }
 
     private void Update()
@@ -56,6 +59,7 @@ public class Combat : InteractionHistory
 
     private void OnAttackTopPerformed(InputAction.CallbackContext ctx)
     {
+        moveScript.FreezePlayer(1f);
         var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
         Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
         
@@ -63,6 +67,8 @@ public class Combat : InteractionHistory
         {
             return;
         }
+
+        moveScript.OnPlayerLookAt.Invoke(hit.collider.gameObject.transform.position);
 
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
@@ -106,6 +112,7 @@ public class Combat : InteractionHistory
 
     private void OnAttackBottomPerformed(InputAction.CallbackContext ctx)
     {
+        moveScript.FreezePlayer(1f);
         var ray = new Ray(interactionPosition.transform.position, interactionPosition.transform.forward);
         Physics.Raycast(ray, out RaycastHit hit, closeRangeCheck);
 
@@ -114,6 +121,7 @@ public class Combat : InteractionHistory
             return;
         }
 
+        moveScript.OnPlayerLookAt.Invoke(hit.collider.gameObject.transform.position);
         if (hit.collider.gameObject.CompareTag(nameof(Tag.Adult)))
         {
             var adult = hit.collider.gameObject.GetComponentInParent<Adult>();
