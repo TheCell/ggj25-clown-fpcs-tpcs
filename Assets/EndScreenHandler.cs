@@ -7,7 +7,7 @@ public class EndScreenHandler : MonoBehaviour
     [SerializeField] private Image imageHolder;
     [SerializeField] private Sprite trueEnding;
     [SerializeField] private Sprite regularEnding;
-    [SerializeField] private Sprite bountyPoster;
+    [SerializeField] private GameObject bountyPoster;
     [SerializeField] private AnimationCurve bountySlapOntoSurfaceCurve;
 
     private void Start() {
@@ -29,13 +29,13 @@ public class EndScreenHandler : MonoBehaviour
     //Fade in Bounty and program in animation to make it look like it is slapped onto the surface of the screen
     public IEnumerator BountySlapOntoSurface()
     {
-        //Create new image under the image holder for the bounty
-        Image bountyImage = new GameObject("BountyImage").AddComponent<Image>();
-        bountyImage.transform.SetParent(imageHolder.transform);
-        bountyImage.rectTransform.position = imageHolder.rectTransform.position + new Vector3(0, 0, -1);
-        bountyImage.rectTransform.anchoredPosition = new Vector3(0, 0, 0);
-        bountyImage.rectTransform.sizeDelta = bountyPoster.rect.size;
-        bountyImage.sprite = bountyPoster;
+        GameObject bounty = Instantiate(bountyPoster, imageHolder.transform);
+        Image bountyImage = bounty.GetComponentInChildren<Image>();
+
+        bounty.transform.SetParent(imageHolder.transform);
+        RectTransform bountyRectTransform = bounty.GetComponent<RectTransform>();
+        bountyRectTransform.position = imageHolder.rectTransform.position + new Vector3(0, 0, -1);
+        bountyRectTransform.anchoredPosition = new Vector3(0, 0, 0);
         
         //Animate the poster by scaling it down and slightly moving it and slightly rotation it to make it look like it is slapped onto the surface
         float time = 0;

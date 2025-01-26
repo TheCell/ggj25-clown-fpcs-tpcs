@@ -272,7 +272,7 @@ MonoBehaviour:
   imageHolder: {fileID: 1012638180}
   trueEnding: {fileID: 21300000, guid: 230f0fa63109cac4098d46d67fee82eb, type: 3}
   regularEnding: {fileID: 21300000, guid: ab73e38b2a31d6a4889700a148b83304, type: 3}
-  bountyPoster: {fileID: 21300000, guid: e3e273433dd011a48b3b276a1459d8dd, type: 3}
+  bountyPoster: {fileID: 2854178257688217522, guid: 7b8c607835fcd6143b03917c2af4f87a, type: 3}
   bountySlapOntoSurfaceCurve:
     serializedVersion: 2
     m_Curve:
@@ -450,11 +450,11 @@ RectTransform:
   - {fileID: 1567524541}
   m_Father: {fileID: 338689526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 300, y: 300}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &345072671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,11 +721,11 @@ RectTransform:
   - {fileID: 500921054}
   m_Father: {fileID: 338689526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
   m_SizeDelta: {x: 300, y: 300}
-  m_Pivot: {x: 0.5, y: 0}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &597257542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1328,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1129219302445955049, guid: 220a9996e9369034aa4de2fb27beeb5b, type: 3}
+      propertyPath: score
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3489282010973714555, guid: 220a9996e9369034aa4de2fb27beeb5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7793076
