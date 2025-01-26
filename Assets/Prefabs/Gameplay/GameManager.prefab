@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117d8b438d89b3f4ca3e554e4000853a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeUntilCopsArrive: 50
+  timeUntilCopsArrive: 180
   timeUntilCopsArriveCounter: 0
   isGamePaused: 1
   isTrueEnding: 0
   score: 0
+  balloonsPopped: 0
+  totalChildren: 0
 --- !u!82 &1434988242579237680
 AudioSource:
   m_ObjectHideFlags: 0
