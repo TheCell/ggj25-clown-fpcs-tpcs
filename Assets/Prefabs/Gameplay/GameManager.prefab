@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeUntilCopsArrive: 50
-  isGamePaused: 0
+  timeUntilCopsArriveCounter: 0
+  isGamePaused: 1
   isTrueEnding: 0
   score: 0
 --- !u!82 &1434988242579237680

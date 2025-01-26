@@ -2,16 +2,17 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    [SerializeField] private float timeUntilCopsArrive = 60f;
+    public float timeUntilCopsArrive = 60f;
     private AudioSource audioSource;
     private AudioMixer audioMixer;
 
-    private float timeUntilCopsArriveCounter = 0f;
+    public float timeUntilCopsArriveCounter = 0f;
     public bool isGamePaused = true;
     public bool isTrueEnding = false;
     public int score = 0;
