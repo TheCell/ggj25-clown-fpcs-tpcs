@@ -1,4 +1,5 @@
 using System.Collections;
+using NPC;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,6 +40,13 @@ public class ScoreManager : MonoBehaviour
         }
 
         antiCheatFloatMultiplier = Random.Range(2, 100);
+
+    }
+
+    private void Start()
+    {
+        int childrenInScene = Object.FindObjectsByType<Child>(FindObjectsSortMode.InstanceID).Length;
+        GameManager.Instance.totalChildren = childrenInScene;
     }
 
     private void Update()
@@ -57,7 +65,7 @@ public class ScoreManager : MonoBehaviour
             }
         }
 
-        if(!GameManager.Instance.isGamePaused)
+        if (!GameManager.Instance.isGamePaused)
         {
             timeUntilPoliceArriveSlider.value = 1f - GameManager.Instance.timeUntilCopsArriveCounter / GameManager.Instance.timeUntilCopsArrive;
         }
@@ -113,6 +121,10 @@ public class ScoreManager : MonoBehaviour
                 strikes = 0;
                 GameManager.Instance.EndGame();
             }
+        }
+        else if (interaction == Interaction.BubbleBurst)
+        {
+            GameManager.Instance.balloonsPopped++;
         }
 
         if (interaction == lastInteraction)
@@ -188,26 +200,35 @@ public class ScoreManager : MonoBehaviour
 
     private IEnumerator SpawnAndFlyAwayScoreText(int score, Vector3 position)
     {
-        Vector3 canvasPosition = Camera.main.WorldToScreenPoint(position);
-        TextMeshProUGUI scoreText = Instantiate(comboText, canvasPosition, Quaternion.identity);
-        scoreText.text = score.ToString();
-        scoreText.transform.SetParent(GetComponentInChildren<Canvas>().transform);
-        scoreText.transform.position = position;
-        scoreText.transform.localScale = Vector3.one * 2;
-        scoreText.color = Color.green;
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(position);
+        TextMeshProUGUI scoreTextInstance = Instantiate(scoreText, screenPosition, Quaternion.identity);
+        scoreTextInstance.text = score.ToString();
+        scoreTextInstance.transform.SetParent(GetComponentInChildren<Canvas>().transform, false);
+        scoreTextInstance.transform.position = screenPosition;
+        scoreTextInstance.transform.localScale = Vector3.one * 2;
+        scoreTextInstance.color = Random.ColorHSV();
+        VertexGradient originalGradient = new VertexGradient(Random.ColorHSV(), Random.ColorHSV(), Random.ColorHSV(), Random.ColorHSV());
+        scoreTextInstance.colorGradient = originalGradient;
 
-        //Layer sinus waves with different intensity and amplitude over each other to define path
         float amplitude = 0.5f;
         float frequency = 1f;
-        float intensity = 1f;
+        float duration = 1f;
         float elapsedTime = 0f;
-        while (elapsedTime < 1)
+        float strength = 200f;
+        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized;
+
+        while (elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float sinWave = Mathf.Sin(elapsedTime * frequency) * amplitude;
-            scoreText.transform.position += Vector3.up * sinWave * intensity;
-            scoreText.color = Color.Lerp(Random.ColorHSV(), Color.clear, elapsedTime);
+            scoreTextInstance.transform.position += randomDirection * Time.deltaTime * strength;
+            scoreTextInstance.transform.position += Vector3.up * sinWave;
+            Color currentColor = scoreTextInstance.color;
+            currentColor.a = Mathf.Lerp(1f, 0f, elapsedTime / duration);
+            scoreTextInstance.color = currentColor;
             yield return null;
         }
+
+        Destroy(scoreTextInstance.gameObject);
     }
 }

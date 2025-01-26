@@ -1,8 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
@@ -16,6 +13,8 @@ public class GameManager : MonoBehaviour
     public bool isGamePaused = true;
     public bool isTrueEnding = false;
     public int score = 0;
+    public int balloonsPopped = 0;
+    public int totalChildren = 0;
 
     private void Awake()
     {
@@ -50,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         isGamePaused = true;
+        isTrueEnding = totalChildren == balloonsPopped;
         timeUntilCopsArriveCounter = 0f;
         SceneHandler.GoToNextScene();
     }
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         if (score == 0)
         {
             isGamePaused = false;
+            balloonsPopped = 0;
         }
 
         score += scoreToAdd;
