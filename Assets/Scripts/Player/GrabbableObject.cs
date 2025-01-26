@@ -13,12 +13,14 @@ namespace Player
         private bool isThrown;
         private float adultsRadius = 10f;
         private List<Collider> adultsColliderInRadius = new List<Collider>();
+        private Rigidbody rb;
 
         private ScoreManager scoreManager;
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
             scoreManager = ScoreManager.instance;
+            rb = GetComponent<Rigidbody>();
         }
         private void OnEnable()
         {
@@ -40,6 +42,19 @@ namespace Player
         public void SetThrown(bool thrown)
         {
             isThrown = thrown;
+
+            if (isThrown)
+            {
+                rb.isKinematic = false;
+            }
+
+            if (!isThrown)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                transform.rotation = Quaternion.identity;
+                rb.isKinematic = true;
+            }
         }
 
         private void OnCollisionEnter(Collision other)
@@ -53,9 +68,7 @@ namespace Player
             }
 
             //Debug.Log("Collision ja lol ey" + other.gameObject.name);
-            isThrown = false;
-            gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
+            SetThrown(false);
 
             if (other.gameObject.CompareTag(nameof(Tag.Child)))
             {
