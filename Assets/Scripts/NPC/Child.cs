@@ -62,6 +62,11 @@ namespace NPC
             emotionBillboardAnimator.Play(emotion.ToString());
         }
 
+        public void StartShove(Vector3 shoveDirection, float shoveDuration)
+        {
+            StartCoroutine(GetShoved(shoveDirection, shoveDuration));
+        }
+
         public IEnumerator GetShoved(Vector3 shoveDirection, float shoveDuration)
         {
             if (isBeingShoved)
@@ -77,7 +82,7 @@ namespace NPC
             //Reset RB and set it u pstraight again
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.rotation = Quaternion.identity;
+            transform.rotation = Quaternion.identity;
             rb.isKinematic = true;
 
         }
