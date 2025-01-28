@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     }
 
     private bool playedCopArriving = false;
+    private bool playedMumbling = false;
     private void Update()
     {
         if (SceneHandler.Instance.currentScene == SceneType.GAMESCENE && backgroundAudioSource.clip != gameAudioClip)
@@ -59,11 +60,17 @@ public class GameManager : MonoBehaviour
 
         if (SceneHandler.Instance.currentScene == SceneType.GAMESCENE && !isGamePaused)
         {
+            if (!playedMumbling)
+            {
+                playedMumbling = true;
+                soundEffectsAudioSource.PlayOneShot(mumblingAudioClip);
+            }
+
             timeUntilCopsArriveCounter += Time.deltaTime;
-            if (timeUntilCopsArriveCounter >= (timeUntilCopsArrive - 3f))
+            if (timeUntilCopsArriveCounter >= (timeUntilCopsArrive - 6f))
             {
                 playedCopArriving = true;
-                sirenRandomSoundPlayer.PlayRandomAudioOneShot(soundEffectsAudioSource);
+                policeScannerRandomSoundPlayer.PlayRandomAudioOneShot(soundEffectsAudioSource);
             }
 
             if (timeUntilCopsArriveCounter >= timeUntilCopsArrive)
@@ -77,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = true;
         playedCopArriving = false;
+        playedMumbling = false;
         sirenRandomSoundPlayer.PlayRandomAudioOneShot(soundEffectsAudioSource);
         isTrueEnding = totalChildren == balloonsPopped;
         timeUntilCopsArriveCounter = 0f;
